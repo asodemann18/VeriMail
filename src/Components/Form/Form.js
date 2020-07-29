@@ -8,10 +8,6 @@ const Form = (props) => {
     setFileInput(data)
   }
 
-  // const test = () => {
-  //   props.setFileAdded(true)
-  // }
-
   const key = ["email"]
 
   return(
