@@ -8,6 +8,11 @@ const Form = (props) => {
     setFileInput(data)
   }
 
+  const test = () => {
+    props.setFileAdded(true)
+    props.setFileEmails(fileInput)
+  }
+
   const key = ["email"]
 
   return(
@@ -25,8 +30,7 @@ const Form = (props) => {
               aria-label='validate-emails'
             />
             <button 
-              onClick={() => props.setFileAdded(true)}
-              // onClick={fileInput}
+              onClick={test}
               type='button'
             >
               Validate
