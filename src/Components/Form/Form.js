@@ -10,7 +10,7 @@ const Form = (props) => {
 
   const test = () => {
     props.setFileAdded(true)
-    props.setFileEmails(fileInput)
+    props.setEmails(fileInput)
   }
 
   const key = ["email"]
