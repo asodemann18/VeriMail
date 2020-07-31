@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+
 import CsvParse from '@vtex/react-csv-parse'
 
 const Form = (props) => {
@@ -29,12 +31,14 @@ const Form = (props) => {
               onChange={onChange}
               aria-label='validate-emails'
             />
-            <button 
-              onClick={test}
-              type='button'
-            >
-              Validate
-            </button>
+            <Link to='/verified-emails'>
+              <button 
+                onClick={test}
+                type='button'
+              >
+                Validate
+              </button>
+            </Link>
           </form>)
       }}
   />

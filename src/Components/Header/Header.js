@@ -23,8 +23,8 @@ const Header = ({fileAdded}) => {
             <Link to='email-details'>
               <h3>Details</h3>
             </Link>
-            <Link to='verified-emails'>
-              <h3>Verified List</h3>
+            <Link to='/'>
+              <h3>Verify Emails</h3>
             </Link>
           </section>
 
