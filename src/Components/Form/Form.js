@@ -28,6 +28,7 @@ const Form = (props) => {
               type='file'
               name='inputFile'
               accept='.csv'
+              placeholder='upload csv'
               onChange={onChange}
               aria-label='validate-emails'
             />
