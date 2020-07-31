@@ -18,7 +18,7 @@ describe('Form', () => {
     )
     
     const input = getByPlaceholderText('upload csv');
-    const button = getByRole('button', {name: 'Verify'})
+    const button = getByRole('button', {name: 'Verify'});
 
     expect(input).toBeInTheDocument();
     expect(button).toBeInTheDocument();
@@ -39,7 +39,7 @@ describe('Form', () => {
     const input = getByPlaceholderText('upload csv');
     fireEvent.change(input, {target: {files: ['test.csv']}});
 
-    expect(input.files).toEqual(['test.csv'])
+    expect(input.files).toEqual(['test.csv']);
   })
 
   it('should be able to upload a csv in the form', () => {
@@ -55,7 +55,7 @@ describe('Form', () => {
     )
 
     const input = getByPlaceholderText('upload csv');
-    const button = getByRole('button', {name: 'Verify'})
+    const button = getByRole('button', {name: 'Verify'});
 
     fireEvent.change(input, {target: {files: ['test.csv']}});
     fireEvent.click(button)
