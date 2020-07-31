@@ -36,7 +36,7 @@ const Form = (props) => {
                 onClick={test}
                 type='button'
               >
-                Validate
+                Verify
               </button>
             </Link>
           </form>)

@@ -5,7 +5,7 @@ header {
   min-height: 120px;
   /* opacity: 0.8; */
   /* position: relative; */
-  background: #118ab2;
+  background: rgba(17,138,178, .8);
   top: 0;
   width: 100vw;
 }

@@ -1,4 +1,16 @@
 form {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-left: 40%;
+  margin-top: 12%;
+  border: black solid 2px;
+  width: fit-content;
+  padding: 2%;
+}
+
+input {
+  background: white;
+  width:fit-content;
+  margin: 5%;
 }
