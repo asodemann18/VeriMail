@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from '../Form/Form';
+import Header from '../Header/Header';
 import { getEmailInfo } from '../../apiCalls';
+import { Route } from 'react-router-dom';
+
 
 const App = () => {
   const [ emails, setEmails ] = useState([]);
@@ -25,10 +28,15 @@ const App = () => {
   
   return (
     <main>
-      <header >
-        VeriMail
-      </header>
-      <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+      <Header fileAdded={fileAdded}/>
+      
+      <Route 
+        exact path='/'
+        render={() => (
+          <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+        )}
+      />
+
     </main>
   );
 }

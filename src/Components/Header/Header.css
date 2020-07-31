@@ -1,0 +1,45 @@
+header {
+  align-items: center;
+  display: flex;
+  height: 18vh;
+  min-height: 120px;
+  /* opacity: 0.8; */
+  /* position: relative; */
+  background: rgba(17,138,178, .8);
+  top: 0;
+  width: 100vw;
+}
+
+.links {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial;
+  height: 14vh;
+  justify-content: space-evenly;
+  margin-right: 9px;
+  width: 15%;
+}
+
+.uploaded-header {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+.link-name {
+  color: black;
+  margin-right: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+  /* &:hover {
+    color: grey;
+  }*/
+} 
+
+.app-title {
+  margin-left: 12%;
+  margin-top: 2%;
+}
