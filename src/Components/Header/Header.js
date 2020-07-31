@@ -8,7 +8,7 @@ const Header = ({fileAdded}) => {
     <header>
       {!fileAdded && 
         <Link to='/'>
-          <h1>VeriMail</h1>
+          <h1 className='app-title'>VeriMail</h1>
         </Link>
       }
       {fileAdded && 

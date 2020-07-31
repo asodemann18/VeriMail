@@ -1,10 +1,11 @@
 header {
   align-items: center;
   display: flex;
-  height: 14vh;
+  height: 18vh;
   min-height: 120px;
   /* opacity: 0.8; */
-  /* position: fixed; */
+  /* position: relative; */
+  background: #118ab2;
   top: 0;
   width: 100vw;
 }
@@ -32,6 +33,7 @@ header {
   color: black;
   margin-right: 10px;
   margin-bottom: 0;
+  margin-top: 0;
   /* &:hover {
     color: grey;
   }*/

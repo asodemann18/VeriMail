@@ -1,3 +1,6 @@
 body {
-  background-image: url('https://images.unsplash.com/photo-1542866263-77e2cdc46889?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
+  background:linear-gradient(0deg, rgba(131, 131, 131, 1), rgba(131, 131, 131, 1)), url('../../images/desk.png');
+  background-size: cover;
+  background-blend-mode: multiply;
 }
+
