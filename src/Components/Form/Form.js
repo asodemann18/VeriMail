@@ -10,7 +10,7 @@ const Form = (props) => {
     setFileInput(data)
   }
 
-  const test = () => {
+  const handleUpload = () => {
     props.setFileAdded(true)
     props.setEmails(fileInput)
   }
@@ -34,7 +34,7 @@ const Form = (props) => {
             />
             <Link to='/verified-emails'>
               <button 
-                onClick={test}
+                onClick={handleUpload}
                 type='button'
               >
                 Verify
