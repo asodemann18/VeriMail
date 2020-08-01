@@ -48,7 +48,7 @@ describe("App", () => {
         <App />
       </MemoryRouter>
     );
-    const file = new File(['test@gmail.com', 'test@lol.com'], "test.csv", {type: 'csv'});
+    const file = new File(['email\ntest@gmail.com'], "test.csv", {type: 'text/csv'});
     const input = getByPlaceholderText("upload csv");
     const button = getByRole("button", { name: "Verify" });
     // Object.defineProperty(input, 'files', {
@@ -57,9 +57,9 @@ describe("App", () => {
     // Object.defineProperty(input, 'value', {
     //   value: file.name,
     // });
-    console.log(file.fileParts, 'file')
+    // console.log(file.fileParts, 'file')
     fireEvent.change(input, {target: {files: [file]}});
-    // fireEvent.change(input});
+    // fireEvent.change(input);
     fireEvent.click(button);
     
     
