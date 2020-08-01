@@ -54,6 +54,7 @@ a:link {
   font-style: italic;
   font-weight: bold;
   font-size: 20px;
+  color: rgba(239,71,111, .8)
 }
 
 .app-title {

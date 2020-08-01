@@ -10,6 +10,12 @@ form {
   padding: 3%;
 }
 
+label {
+  color: #ef476f;
+  font-size: 30px;
+  font-weight: 500;
+}
+
 input {
   background: rgba(255,255,255, 0.7);
   border-radius: 5px;
@@ -19,7 +25,7 @@ input {
 }
 
 .form-button {
-  background: rgba(17,138,178, .8);
+  background: rgba(239,71,111, .8);
   padding: 10% 20% 10% 20%;
   border-radius: 10px;
   border: none;
@@ -28,4 +34,9 @@ input {
   font-weight: bold;
   margin-top: 10%;
   margin-bottom: 0;;
+}
+
+button:hover {
+  cursor: pointer;
+  background: rgba(17,138,178, .8);
 }
