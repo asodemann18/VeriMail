@@ -15,7 +15,7 @@ describe('Header', () => {
     )
 
     const title = getByText('VeriMail');
-    const details = queryByText('Details');
+    const details = queryByText('Email Details');
 
     expect(title).toBeInTheDocument();
     expect(details).not.toBeInTheDocument();
@@ -31,8 +31,8 @@ describe('Header', () => {
     )
 
     const title = getByText('VeriMail');
-    const details = getByText('Details');
-    const stats = getByText('Stats');
+    const details = getByText('Email Details');
+    const stats = getByText('Email Stats');
     const verifyEmails = getByText('Verify Emails');
 
     expect(title).toBeInTheDocument();

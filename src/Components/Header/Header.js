@@ -18,10 +18,10 @@ const Header = ({fileAdded}) => {
           </Link>
           <section className='links'>
             <Link to='email-stats'>
-              <h3 className='link-name'>Stats</h3>
+              <h3 className='link-name'>Email Stats</h3>
             </Link>
             <Link to='email-details'>
-              <h3 className='link-name'>Details</h3>
+              <h3 className='link-name'>Email Details</h3>
             </Link>
             <Link to='/'>
               <h3 className='link-name'>Verify Emails</h3>

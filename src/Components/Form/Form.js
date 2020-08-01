@@ -24,6 +24,7 @@ const Form = (props) => {
       render={onChange => {
         return(
           <form>
+            <label>Upload Csv</label>
             <input
               type='file'
               name='inputFile'
@@ -36,6 +37,7 @@ const Form = (props) => {
               <button 
                 onClick={handleUpload}
                 type='button'
+                className='form-button'
               >
                 Verify
               </button>
