@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import Header from '../Header/Header';
+import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
 import { Route } from 'react-router-dom';
 
@@ -34,6 +35,12 @@ const App = () => {
         exact path='/'
         render={() => (
           <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+        )}
+      />
+      <Route 
+        exact path='/verified-emails'
+        render={() => (
+          <VerifiedEmails emails={emails}/>
         )}
       />
 
