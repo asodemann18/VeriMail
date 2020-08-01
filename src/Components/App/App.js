@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import Header from '../Header/Header';
+import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
 import { Route } from 'react-router-dom';
 
@@ -25,6 +26,11 @@ const App = () => {
       setError(error); 
     }
   }
+
+  const filteredEmails = emails.filter(email => {
+    return email.format_valid && email.mx_found && 
+      email.smtp_check && !email.disposable
+  })
   
   return (
     <main>
@@ -34,6 +40,13 @@ const App = () => {
         exact path='/'
         render={() => (
           <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+        )}
+      />
+      <Route 
+        exact path='/verified-emails'
+        render={() => (
+          <VerifiedEmails filteredEmails={filteredEmails}/>
+          // <VerifiedEmails filteredEmails={emails}/>
         )}
       />
 
