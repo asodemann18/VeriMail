@@ -26,6 +26,11 @@ const App = () => {
       setError(error); 
     }
   }
+
+  const filteredEmails = emails.filter(email => {
+    return email.format_valid && email.mx_found && 
+      email.smtp_check && !email.disposable
+  })
   
   return (
     <main>
@@ -40,7 +45,7 @@ const App = () => {
       <Route 
         exact path='/verified-emails'
         render={() => (
-          <VerifiedEmails emails={emails}/>
+          <VerifiedEmails filteredEmails={filteredEmails}/>
         )}
       />
 
