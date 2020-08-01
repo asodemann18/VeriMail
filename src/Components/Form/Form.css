@@ -2,15 +2,30 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 40%;
+  margin-left: 38%;
   margin-top: 12%;
   border: black solid 2px;
+  border-radius: 10px;
   width: fit-content;
-  padding: 2%;
+  padding: 3%;
 }
 
 input {
-  background: white;
-  width:fit-content;
+  background: rgba(255,255,255, 0.7);
+  border-radius: 5px;
   margin: 5%;
+  display: flex;
+  padding: 2px;
+}
+
+.form-button {
+  background: rgba(17,138,178, .8);
+  padding: 10% 20% 10% 20%;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  margin-top: 10%;
+  margin-bottom: 0;;
 }

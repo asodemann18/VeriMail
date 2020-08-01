@@ -36,6 +36,7 @@ const Form = (props) => {
               <button 
                 onClick={handleUpload}
                 type='button'
+                className='form-button'
               >
                 Verify
               </button>
