@@ -4,28 +4,18 @@ import './VerifiedEmails.css';
 const VerifiedEmails = ({ filteredEmails }) => {
   const verifiedResults = filteredEmails.map(email => {
     return (
-      <tr>
+      <tr key={email.email}>
         <td>{email.email}</td>
       </tr>
     )
   })
 
   return (
-    // <section>
-    //   <ul>{verifiedResults.length && verifiedResults}</ul>
-    // </section>
     <section className='verified-section'>
       <h3 className='verified-title'>Verified Emails</h3>
       <table>
-        {/* <thead>
-          <tr>
-            <th>V</th>
-          </tr>
-        </thead> */}
         <tbody>
-          {/* <tr> */}
-            {verifiedResults.length && verifiedResults}
-          {/* </tr> */}
+          {verifiedResults.length && verifiedResults}
         </tbody>
       </table>
     </section>

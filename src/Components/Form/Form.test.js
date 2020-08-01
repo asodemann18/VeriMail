@@ -5,10 +5,10 @@ import { render, fireEvent, waitFor, getByLabelText } from '@testing-library/rea
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Form', () => {
-  it('should display a form', () => {
+  it('should display a form with a label', () => {
     const mockSetFileAdded = jest.fn()
     const mockSetEmails = jest.fn()
-    const { getByPlaceholderText, getByRole } = render(
+    const { getByPlaceholderText, getByRole, getByText } = render(
       <MemoryRouter>
         <Form 
          setFileAdded={mockSetFileAdded}
@@ -16,10 +16,11 @@ describe('Form', () => {
         />
       </MemoryRouter>
     )
-    
+    const title = getByText('Upload Csv');
     const input = getByPlaceholderText('upload csv');
     const button = getByRole('button', {name: 'Verify'});
 
+    expect(input).toBeInTheDocument();
     expect(input).toBeInTheDocument();
     expect(button).toBeInTheDocument();
   })
@@ -53,7 +54,7 @@ describe('Form', () => {
         />
       </MemoryRouter>
     )
-
+      
     const input = getByPlaceholderText('upload csv');
     const button = getByRole('button', {name: 'Verify'});
 

@@ -7,15 +7,15 @@ const Form = (props) => {
 	const [ fileInput, setFileInput ] = useState([]);
 
   const handleData = (data) => {
-    setFileInput(data)
+    setFileInput(data);
   }
 
   const handleUpload = () => {
-    props.setFileAdded(true)
-    props.setEmails(fileInput)
+    props.setFileAdded(true);
+    props.setEmails(fileInput);
   }
 
-  const key = ["email"]
+  const key = ["email"];
 
   return(
     <CsvParse
