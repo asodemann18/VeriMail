@@ -21,16 +21,16 @@ const App = () => {
   const getEmailData = async () => {
     try {     
       const data = await Promise.all(emails.map(email => getEmailInfo(email.email)));      
-      setEmails(data.drinks[0]);
+      setEmails(data);
     } catch(error) {
       setError(error); 
     }
   }
 
-  // const filteredEmails = emails.filter(email => {
-  //   return email.format_valid && email.mx_found && 
-  //     email.smtp_check && !email.disposable
-  // })
+  const filteredEmails = emails.filter(email => {
+    return email.format_valid && email.mx_found && 
+      email.smtp_check && !email.disposable
+  })
   
   return (
     <main>
@@ -45,8 +45,8 @@ const App = () => {
       <Route 
         exact path='/verified-emails'
         render={() => (
-          // <VerifiedEmails filteredEmails={filteredEmails}/>
-          <VerifiedEmails filteredEmails={emails}/>
+          <VerifiedEmails filteredEmails={filteredEmails}/>
+          // <VerifiedEmails filteredEmails={emails}/>
         )}
       />
 

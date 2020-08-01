@@ -14,18 +14,21 @@ const VerifiedEmails = ({ filteredEmails }) => {
     // <section>
     //   <ul>{verifiedResults.length && verifiedResults}</ul>
     // </section>
-    <table>
-      {/* <thead>
-        <tr>
-          <th>V</th>
-        </tr>
-      </thead> */}
-      <tbody>
-        {/* <tr> */}
-          {verifiedResults.length && verifiedResults}
-        {/* </tr> */}
-      </tbody>
-    </table>
+    <section className='verified-section'>
+      <h3 className='verified-title'>Verified Emails</h3>
+      <table>
+        {/* <thead>
+          <tr>
+            <th>V</th>
+          </tr>
+        </thead> */}
+        <tbody>
+          {/* <tr> */}
+            {verifiedResults.length && verifiedResults}
+          {/* </tr> */}
+        </tbody>
+      </table>
+    </section>
   )
 }
 

@@ -1,0 +1,17 @@
+.verified-section {
+  background-color: white;
+  width: fit-content;
+  padding: .5% 2% 2% 2%;
+  margin-left: 43%;
+  margin-top: 5%;
+  border-radius: 10px;
+  max-height: 50vh;
+  overflow: scroll;
+}
+
+.verified-title {
+  color: #ef476f;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
