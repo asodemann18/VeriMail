@@ -1,6 +1,10 @@
-body {
+main {
   background:linear-gradient(0deg, rgba(131, 131, 131, 1), rgba(131, 131, 131, 1)), url('../../images/desk.png');
   background-size: cover;
   background-blend-mode: multiply;
+  background-repeat: no-repeat;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  height: 100vh;
 }
 
