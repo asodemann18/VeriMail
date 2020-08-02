@@ -4,7 +4,7 @@ import './Details.css';
 const Details = ({emails}) => {
   const emailDetailsTitles = emails.map(title => {
     return (
-      <tr>
+      <tr key={title.email}>
         <td className='table-data'>{title.email}</td>
         <td className='table-data'>{title.did_you_mean}</td>
         <td className='table-data'>{title.user}</td>
@@ -15,7 +15,7 @@ const Details = ({emails}) => {
         <td className='table-data'>{title.role.toString()}</td>
         <td className='table-data'>{title.disposable.toString()}</td>
         <td className='table-data'>{title.free.toString()}</td>
-        <td className='table-data'>{title.score*100}</td>
+        <td className='table-data'>{title.score*100 + '%'}</td>
       </tr>
     )
   })
