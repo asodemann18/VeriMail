@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import Header from '../Header/Header';
+import Stats from '../Stats/Stats';
 import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
 import { Route } from 'react-router-dom';
@@ -31,6 +32,26 @@ const App = () => {
     return email.format_valid && email.mx_found && 
       email.smtp_check && !email.disposable
   })
+
+  const statsList = [
+    'format_valid',
+    'mx_found',
+    'smtp_check',
+    'role',
+    'disposable',
+    'free' 
+  ]
+
+  const statsBreakdown = statsList.reduce((acc, stat) => {
+    if (!acc[stat]) {
+      acc[stat] = Math.round((emails.filter(email => email[stat]).length / emails.length)*100)
+    }
+    return acc
+  },{})
+
+  const avgScore = emails.reduce((acc, email) => {
+    return acc += Math.round((email.score / emails.length)*100)
+  }, 0)
   
   return (
     <main>
@@ -47,6 +68,12 @@ const App = () => {
         render={() => (
           <VerifiedEmails filteredEmails={filteredEmails}/>
           // <VerifiedEmails filteredEmails={emails}/>
+        )}
+      />
+      <Route 
+        exact path='/email-stats'
+        render={() => (
+          <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
         )}
       />
 
