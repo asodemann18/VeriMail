@@ -79,7 +79,6 @@ describe('Details', () => {
     const falseValues = getAllByText('false');
     const email1 = getByText('test@gmail.com');
     const email2 = getByText('test2@lol.com');
-    // run debugger const didYouMean1 = queryByText('test@.com') //not in
     const didYouMean1 = getByText('test2@aol.com');
     const user1 = getByText('test');
     const user2 = getByText('test2');
