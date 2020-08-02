@@ -8,11 +8,14 @@ const Form = (props) => {
 
   const handleData = (data) => {
     setFileInput(data);
+    console.log(data, 'data');
+    
   }
 
   const handleUpload = () => {
     props.setFileAdded(true);
     props.setEmails(fileInput);
+    // console.log('test')
   }
 
   const key = ["email"];

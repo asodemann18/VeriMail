@@ -11,6 +11,8 @@ const App = () => {
   const [ emails, setEmails ] = useState([]);
   const [ fileAdded, setFileAdded ] = useState(false);
   const [error, setError] = useState('');
+  console.log(emails, 'emails');
+  
 
   useEffect(() => {
     if(fileAdded) {
