@@ -37,7 +37,7 @@ const Stats = ({statsBreakdown, avgScore}) => {
     }
 
     return (
-      <section className='chart'>
+      <section className='chart'  data-testid='chart' key={key}>
         <Doughnut data={chart(statsBreakdown[key], (100-statsBreakdown[key]))} options={{
           responsive: true,
           title: {text: formattedKey(), display: true},
