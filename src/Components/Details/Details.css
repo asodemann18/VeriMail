@@ -18,11 +18,18 @@ table {
   table-layout: auto;
 }
 
+tr {
+  width: fit-content;
+}
+
 .table-header, .table-data {
   padding: 1%;
   text-align: center;
   border: 1px black dashed;
-  width: fit-content;
+}
+
+.table-data {
+  width: fit-content !important;
 }
 
 .detail-title {

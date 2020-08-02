@@ -13,7 +13,7 @@ const Details = ({emails}) => {
         <td className='table-data'>{title.did_you_mean}</td>
         <td className='table-data'>{title.user}</td>
         <td className='table-data'>{title.domain}</td>
-        <td className='table-data'>{title.format_valid}</td>
+        <td className='table-data'>{fixNulls(title.format_valid)}</td>
         <td className='table-data'>{fixNulls(title.mx_found)}</td>
         <td className='table-data'>{fixNulls(title.smtp_check)}</td>
         <td className='table-data'>{fixNulls(title.role)}</td>
