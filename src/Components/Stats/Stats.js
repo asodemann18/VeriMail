@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './Stats.css';
 import { Doughnut } from 'react-chartjs-2';
 
