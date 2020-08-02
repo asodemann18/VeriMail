@@ -61,7 +61,7 @@ const App = () => {
       <Route 
         exact path='/'
         render={() => (
-          <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+          <Form setFileAdded={setFileAdded} setEmails={setEmails} emails={emails}/>
         )}
       />
       <Route 

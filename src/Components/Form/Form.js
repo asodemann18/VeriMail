@@ -8,6 +8,7 @@ const Form = (props) => {
 
   const handleData = (data) => {
     setFileInput(data)
+    props.setFileAdded(false)
   }
 
   const handleUpload = () => {

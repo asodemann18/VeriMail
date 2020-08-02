@@ -2,6 +2,10 @@ import React from 'react';
 import './Details.css';
 
 const Details = ({emails}) => {
+  const fixNulls = (data) => {
+    return data ? data.toString() : 'false'
+  }
+
   const emailDetailsTitles = emails.map(title => {
     return (
       <tr key={title.email}>
@@ -9,13 +13,13 @@ const Details = ({emails}) => {
         <td className='table-data'>{title.did_you_mean}</td>
         <td className='table-data'>{title.user}</td>
         <td className='table-data'>{title.domain}</td>
-        <td className='table-data'>{title.format_valid.toString()}</td>
-        <td className='table-data'>{title.mx_found.toString()}</td>
-        <td className='table-data'>{title.smtp_check.toString()}</td>
-        <td className='table-data'>{title.role.toString()}</td>
-        <td className='table-data'>{title.disposable.toString()}</td>
-        <td className='table-data'>{title.free.toString()}</td>
-        <td className='table-data'>{title.score*100 + '%'}</td>
+        <td className='table-data'>{fixNulls(title.format_valid)}</td>
+        <td className='table-data'>{fixNulls(title.mx_found)}</td>
+        <td className='table-data'>{fixNulls(title.smtp_check)}</td>
+        <td className='table-data'>{fixNulls(title.role)}</td>
+        <td className='table-data'>{fixNulls(title.disposable)}</td>
+        <td className='table-data'>{fixNulls(title.free)}</td>
+        <td className='table-data'>{fixNulls(title.score)}</td>
       </tr>
     )
   })
