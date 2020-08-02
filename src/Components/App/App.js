@@ -25,7 +25,7 @@ const App = () => {
       const data = await Promise.all(emails.map(email => getEmailInfo(email.email)));      
       setEmails(data);
     } catch(error) {
-      setError(error); 
+      setError(error.toString()); 
     }
   }
 
@@ -56,8 +56,7 @@ const App = () => {
   
   return (
     <main>
-      <Header fileAdded={fileAdded}/>
-      
+      <Header fileAdded={fileAdded}/>   
       <Route 
         exact path='/'
         render={() => (
@@ -67,7 +66,7 @@ const App = () => {
       <Route 
         exact path='/verified-emails'
         render={() => (
-          <VerifiedEmails filteredEmails={filteredEmails}/>
+          <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
         )}
       />
       <Route 
