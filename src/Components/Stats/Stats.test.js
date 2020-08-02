@@ -27,10 +27,8 @@ describe('Stats', () => {
     const avgScore = getByText('68%');
     const charts = getAllByTestId('chart');
     
-    expect(charts.length).toEqual(6);
     expect(avgTitle).toBeInTheDocument();
     expect(avgScore).toBeInTheDocument();
-
-    // debug();
+    expect(charts.length).toEqual(6);
   })    
 })
