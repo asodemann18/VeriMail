@@ -68,7 +68,6 @@ const App = () => {
         exact path='/verified-emails'
         render={() => (
           <VerifiedEmails filteredEmails={filteredEmails}/>
-          // <VerifiedEmails filteredEmails={emails}/>
         )}
       />
       <Route 

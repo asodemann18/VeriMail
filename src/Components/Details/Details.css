@@ -1,0 +1,9 @@
+.detail-section {
+  background: white;
+  border-radius: 10px;
+  width: fit-content;
+  max-height: 60vh;
+  margin-left: 13%;
+  padding: 2%;
+  overflow: scroll
+}

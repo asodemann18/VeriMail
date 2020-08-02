@@ -11,9 +11,6 @@ const VerifiedEmails = ({ filteredEmails }) => {
   })
 
   return (
-    // <section>
-    //   <ul>{verifiedResults.length && verifiedResults}</ul>
-    // </section>
     <section className='verified-section'>
       <h3 className='verified-title'>Verified Emails</h3>
       <table>
