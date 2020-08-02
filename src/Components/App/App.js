@@ -44,7 +44,7 @@ const App = () => {
 
   const statsBreakdown = statsList.reduce((acc, stat) => {
     if (!acc[stat]) {
-      acc[stat] = emails.filter(email => email[stat]).length / emails.length
+      acc[stat] = Math.round((emails.filter(email => email[stat]).length / emails.length)*100)
     }
     return acc
   },{})

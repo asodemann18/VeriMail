@@ -18,23 +18,34 @@ const Stats = ({statsBreakdown, avgScore}) => {
     )
   }
   const keys = Object.keys(statsBreakdown)
-  const formattedTitles = [{
-    format_valid: 'Valid Format',
-    // 'MX Found',
-    // 'SMTP Check',
-    // 'Business Role',
-    // 'Disposable',
-    // 'Free Domain'
-  }]
   const chartData = keys.map(key => {
-    const formattedKey = () => {if(key === 'free') {
-      return 'Free Domain'
-    }}
+    const formattedKey = () => {
+      if(key === 'free') {
+      return '% Free Domain'
+      } else if(key === 'format_valid') {
+      return '% Valid Format';
+      } else if(key === 'role') {
+        return '% Role'
+      } else if(key === 'disposable') {
+        return '% Disposable'
+      } else if (key === 'mx_found') {
+        return '% Valid Domain'
+      } else if (key === 'smtp_check') {
+        return '% Valid User'
+      }
+    }
     return (
       <section className='test'>
-        <Doughnut data={chart(statsBreakdown[key], (1-statsBreakdown[key]))} options={{
+        <Doughnut data={chart(statsBreakdown[key], (100-statsBreakdown[key]))} options={{
           responsive: true,
-          title: {text: key, display: true}
+          title: {text: formattedKey(), display: true},
+          tooltips: {
+            callbacks: {
+              label: function(tooltipItem, data) {
+                return data['labels'][tooltipItem['index']] + ': ' + data['datasets'][0]['data'][tooltipItem['index']] + '%';
+              }
+            }
+          }
         }}/>
       </section>
     );
