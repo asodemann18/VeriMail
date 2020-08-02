@@ -4,7 +4,6 @@ header {
   display: flex;
   height: 18vh;
   min-height: 120px;
-  /* background: rgba(17,138,178, .7); */
   background: rgba(239,71,111, .6);
   top: 0;
   width: 100vw;

@@ -7,7 +7,6 @@
 } 
 
 .chart-section {
-  /* margin-top: 3%; */
   margin: 3% 2% 2% 2%;
   display: flex;
   flex-direction: row;
@@ -18,7 +17,6 @@
 #avg-title {
   padding-top: 1%;
   font-family: 'Open Sans', sans-serif;
-  /* color: #ef476f; */
   color:  rgba(17,138,178, 1);
   font-size: 18px;
   margin-top: 3%;
