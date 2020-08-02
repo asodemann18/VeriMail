@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import Header from '../Header/Header';
+import Stats from '../Stats/Stats';
 import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
 import { Route } from 'react-router-dom';
@@ -67,6 +68,12 @@ const App = () => {
         render={() => (
           <VerifiedEmails filteredEmails={filteredEmails}/>
           // <VerifiedEmails filteredEmails={emails}/>
+        )}
+      />
+      <Route 
+        exact path='/email-stats'
+        render={() => (
+          <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
         )}
       />
 
