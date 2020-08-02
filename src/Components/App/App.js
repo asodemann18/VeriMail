@@ -44,13 +44,13 @@ const App = () => {
 
   const statsBreakdown = statsList.reduce((acc, stat) => {
     if (!acc[stat]) {
-      acc[stat] = emails.filter(email => email[stat]).length / email.length
+      acc[stat] = emails.filter(email => email[stat]).length / emails.length
     }
     return acc
   },{})
 
   const avgScore = emails.reduce((acc, email) => {
-    return acc += email.score / email.length
+    return acc += email.score / emails.length
   }, 0)
   
   return (
