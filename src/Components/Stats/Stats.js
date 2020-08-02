@@ -17,6 +17,7 @@ const Stats = ({statsBreakdown, avgScore}) => {
       ]}
     )
   }
+
   const keys = Object.keys(statsBreakdown)
   const chartData = keys.map(key => {
     const formattedKey = () => {
@@ -34,8 +35,9 @@ const Stats = ({statsBreakdown, avgScore}) => {
         return '% Valid User'
       }
     }
+
     return (
-      <section className='test'>
+      <section className='chart'>
         <Doughnut data={chart(statsBreakdown[key], (100-statsBreakdown[key]))} options={{
           responsive: true,
           title: {text: formattedKey(), display: true},
@@ -48,11 +50,15 @@ const Stats = ({statsBreakdown, avgScore}) => {
           }
         }}/>
       </section>
-    );
+    )
   })
 
   return (
     <section className='chart-section'>
+      <section className='chart'>
+        <h3>Average Overall Score</h3>
+        {avgScore + '%'}
+      </section>
       {chartData}
     </section>
   )

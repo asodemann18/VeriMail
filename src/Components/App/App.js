@@ -50,7 +50,7 @@ const App = () => {
   },{})
 
   const avgScore = emails.reduce((acc, email) => {
-    return acc += email.score / emails.length
+    return acc += Math.round((email.score / emails.length)*100)
   }, 0)
   
   return (

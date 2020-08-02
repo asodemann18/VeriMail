@@ -1,12 +1,14 @@
-.test {
+.chart {
   background-color: white;
   padding: 1%;
   margin: 1%;
   border-radius: 10px;
+  min-width: 200px;
 } 
 
 .chart-section {
-  margin-top: 3%;
+  /* margin-top: 3%; */
+  margin: 3% 2% 2% 2%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
