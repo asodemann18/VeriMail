@@ -3,10 +3,7 @@ import './Stats.css';
 import { Doughnut } from 'react-chartjs-2';
 
 const Stats = ({statsBreakdown, avgScore}) => {
-  // const [chartData, setChartData] = useState([]);
-
   const chart = (trueData, falseData) => {
-    // setChartData({
     return (
       {labels: ['True', 'False'],
       datasets: [
@@ -19,16 +16,29 @@ const Stats = ({statsBreakdown, avgScore}) => {
         }
       ]}
     )
-    // })
   }
   const keys = Object.keys(statsBreakdown)
+  const formattedTitles = [{
+    format_valid: 'Valid Format',
+    // 'MX Found',
+    // 'SMTP Check',
+    // 'Business Role',
+    // 'Disposable',
+    // 'Free Domain'
+  }]
   const chartData = keys.map(key => {
-    return <Doughnut data={chart(statsBreakdown[key], (1-statsBreakdown[key]))}/>;
+    const formattedKey = () => {if(key === 'free') {
+      return 'Free Domain'
+    }}
+    return (
+      <section className='test'>
+        <Doughnut data={chart(statsBreakdown[key], (1-statsBreakdown[key]))} options={{
+          responsive: true,
+          title: {text: key, display: true}
+        }}/>
+      </section>
+    );
   })
-
-  // useEffect(() => {
-  //   chart();
-  // }, [])
 
   return (
     <section className='chart-section'>
