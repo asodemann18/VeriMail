@@ -31,6 +31,24 @@ const App = () => {
     return email.format_valid && email.mx_found && 
       email.smtp_check && !email.disposable
   })
+
+  const statsList = [
+    'format_valid',
+    'mx_found',
+    'smtp_check',
+    'role',
+    'disposable',
+    'free' 
+  ]
+
+  const statsBreakdown = statsList.reduce((acc, stat) => {
+    if (!acc[stat]) {
+      acc[stat] = data.filter(d => d[stat] === true).length / data.length
+    }
+    return acc
+  },{})
+
+
   
   return (
     <main>
