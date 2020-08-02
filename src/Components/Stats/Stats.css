@@ -7,10 +7,24 @@
 } 
 
 .chart-section {
-  /* margin-top: 3%; */
   margin: 3% 2% 2% 2%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+#avg-title {
+  padding-top: 1%;
+  font-family: 'Open Sans', sans-serif;
+  color:  rgba(17,138,178, 1);
+  font-size: 18px;
+  margin-top: 3%;
+}
+
+#avg-score {
+  display: flex;
+  justify-content: center;
+  font-size: 45px;
+  margin-top: 1%;
 }
