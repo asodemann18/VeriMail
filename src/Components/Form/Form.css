@@ -11,7 +11,8 @@ form {
 }
 
 label {
-  color: #ef476f;
+  /* color: #ef476f; */
+  color: rgba(17,138,178, 1);
   font-size: 30px;
   font-weight: 500;
 }
@@ -25,7 +26,8 @@ input {
 }
 
 .form-button {
-  background: rgba(239,71,111, .7);
+  /* background: rgba(239,71,111, .7); */
+  background: rgba(17,138,178, .7);
   padding: 10% 20% 10% 20%;
   border-radius: 10px;
   border: none;
@@ -38,5 +40,6 @@ input {
 
 button:hover {
   cursor: pointer;
-  background: rgba(17,138,178, .7);
+  /* background: rgba(17,138,178, .7); */
+  background:  rgba(239,71,111, .7);
 }

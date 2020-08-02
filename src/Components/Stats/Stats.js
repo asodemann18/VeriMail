@@ -9,8 +9,8 @@ const Stats = ({statsBreakdown, avgScore}) => {
       datasets: [
         {label: 'theLabel',
         backgroundColor: [
-          'green',
-          'red',
+          'rgba(6, 214, 160, .8)',
+          'rgba(255, 129, 123, 1)',
         ],
         data: [trueData, falseData],
         }
@@ -40,7 +40,19 @@ const Stats = ({statsBreakdown, avgScore}) => {
       <section className='chart'  data-testid='chart' key={key}>
         <Doughnut data={chart(statsBreakdown[key], (100-statsBreakdown[key]))} options={{
           responsive: true,
-          title: {text: formattedKey(), display: true},
+          title: {text: formattedKey(), 
+            display: true, 
+            fontFamily: 'Open Sans', 
+            // fontColor: '#ef476f',
+            fontColor: 'rgba(17,138,178, 1)',
+            fontSize: 18,},
+          legend: {
+            position: 'bottom',
+            labels: {
+              fontFamily: 'Open Sans',
+              fontSize: 14,
+            }
+          },
           tooltips: {
             callbacks: {
               label: function(tooltipItem, data) {
@@ -56,8 +68,8 @@ const Stats = ({statsBreakdown, avgScore}) => {
   return (
     <section className='chart-section'>
       <section className='chart'>
-        <h3>Average Overall Score</h3>
-        {avgScore + '%'}
+        <h3 id='avg-title'>Average Overall Score</h3>
+        <p id='avg-score'>{avgScore + '%'}</p>
       </section>
       {chartData}
     </section>
