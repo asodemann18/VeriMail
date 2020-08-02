@@ -1,7 +1,7 @@
 import React from 'react';
 import './VerifiedEmails.css';
 
-const VerifiedEmails = ({ filteredEmails }) => {
+const VerifiedEmails = ({ filteredEmails, error }) => {
   const verifiedResults = filteredEmails.map(email => {
     return (
       <tr>
@@ -16,7 +16,9 @@ const VerifiedEmails = ({ filteredEmails }) => {
         <h3 className='verified-title'>Verified Emails</h3>
         <table>
           <tbody>
-            {verifiedResults.length && verifiedResults}
+           {error && <p>404: Unable to verify emails</p>}
+           {!error && verifiedResults}
+           {!error && !verifiedResults.length && <p>No verified emails found. Make sure you're uploading a one column csv with headers!</p>}
           </tbody>
         </table>
       </section>
