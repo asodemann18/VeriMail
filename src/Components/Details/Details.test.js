@@ -98,5 +98,17 @@ describe('Details', () => {
     expect(domain2).toBeInTheDocument();
     expect(score1).toBeInTheDocument();
     expect(score2).toBeInTheDocument();
+  });
+
+  it('should display an error message if no file has been uploaded', () => {
+    const {getByText} = render(
+      <MemoryRouter>
+        <Details emails={[]}/>
+      </MemoryRouter>
+    )
+
+    const errorMsg = getByText('No details found. Make sure you are uploading a one column csv with headers.')
+    expect(errorMsg).toBeInTheDocument();
   })
+
 })

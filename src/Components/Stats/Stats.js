@@ -68,7 +68,7 @@ const Stats = ({statsBreakdown, avgScore, error}) => {
   return (
     <>
       {error && <p className='error-message'>{error}</p>}
-      {!error && isNaN(statsBreakdown.disposable)  && <p  className='error-message'>No verified emails found. Make sure you are  uploading a one column csv with headers.</p>}
+      {!error && isNaN(statsBreakdown.disposable)  && <p  className='error-message'>No stats found. Make sure you are  uploading a one column csv with headers.</p>}
       {!error && !isNaN(statsBreakdown.disposable) &&
         <section className='chart-section'>
           <section className='chart'>

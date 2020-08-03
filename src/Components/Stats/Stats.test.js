@@ -44,12 +44,12 @@ describe('Stats', () => {
   })    
 
   it('should display an error message if no file has been uploaded', () => {
-    const { getAllByTestId, getByText } = render(
+    const { getByText } = render(
       <MemoryRouter>
         <Stats statsBreakdown={sampleFailingStatsBreakdown} avgScore={sampleFailingAvgScore} />
       </MemoryRouter>
     )
-    const errorMsg = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
+    const errorMsg = getByText('No stats found. Make sure you are uploading a one column csv with headers.')
     expect(errorMsg).toBeInTheDocument();
   })  
 })

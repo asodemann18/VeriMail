@@ -53,7 +53,7 @@ describe('Verified Emails', () => {
   })
 
   it('should display an error message if no emails were valid', () => {
-    const { getByText, queryByText } = render(
+    const { getByText } = render(
       <MemoryRouter>
         <VerifiedEmails filteredEmails={[]}/>
       </MemoryRouter>

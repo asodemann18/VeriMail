@@ -28,7 +28,7 @@ const Details = ({emails, error}) => {
   return (
     <>
       {error && <p className='error-message'>{error}</p>}
-      {!error && !emails.length && <p className='error-message'>No verified emails found. Make sure you are uploading a one column csv with headers.</p>}
+      {!error && !emails.length && <p className='error-message'>No details found. Make sure you are uploading a one column csv with headers.</p>}
       {!error && emails.length > 0 &&
         <section className='detail-container'>
           <section className='detail-section'>
