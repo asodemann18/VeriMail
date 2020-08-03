@@ -25,10 +25,11 @@ const Form = (props) => {
       keys={key}
       onDataUploaded={handleData}
       render={onChange => {
-        if(fileInput != []) {
         return(
-          <form>
+          <section className='form-container'>
+             <form>
             <label>Upload Csv</label>
+            <p><strong>Note:</strong> Make sure the csv is one column and includes a header.</p>
             <input
               type='file'
               name='inputFile'
@@ -47,9 +48,11 @@ const Form = (props) => {
                 Verify
               </button>
             </Link>
-          </form>)}
+          </form>
+          </section>
+        )
       }}
-  />
+    />
   ) 
 }
 
