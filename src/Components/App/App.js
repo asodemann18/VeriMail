@@ -84,7 +84,7 @@ const App = () => {
       <Route 
         exact path='/:undefined'
         render={() => (
-          <p>Page not found.</p>
+          <p className='undefined-route'>This page cannot be found.</p>
         )}
       />
 
