@@ -1,18 +1,13 @@
-import React,  { useState as useStateMock } from "react";
+import React from "react";
 import App from "./App";
 import "@testing-library/jest-dom";
 import { render, fireEvent, waitFor } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
+import { MemoryRouter, Router } from "react-router-dom";
 import { getEmailInfo } from "../../apiCalls";
 import MutationObserver from "@sheerun/mutationobserver-shim";
-import { act } from "react-dom/test-utils";
+import { createMemoryHistory } from 'history'
 window.MutationObserver = MutationObserver;
 jest.mock("../../apiCalls");
-
-jest.mock('react', () => ({
-  ...jest.requireActual('react'),
-  useState: jest.fn(),
-}));
 
 getEmailInfo.mockResolvedValue([
   {
@@ -46,7 +41,7 @@ getEmailInfo.mockResolvedValue([
 ]);
 
 describe("App", () => {
-  it.only("should be able to upload a file, then be directed to the verified email page that only shows verified emails", async () => {
+  it.skip("should be able to upload a file, then be directed to the verified email page that only shows verified emails", async () => {
     const setState = jest.fn();
     const useStateSpy = jest.spyOn(React, 'useState')
     useStateSpy.mockImplementation((init) => [init, setState]);
@@ -91,7 +86,7 @@ describe("App", () => {
 
     const verifiedEmailsPage = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
     expect(verifiedEmailsPage);
-  })
+  });
 
   it('should take the user to the email stats page that shows an error message if no file has been uploaded', () => {
     const { getByText } = render(
@@ -105,7 +100,7 @@ describe("App", () => {
 
     const emailStatsPage = getByText('No stats found. Make sure you are uploading a one column csv with headers.')
     expect(emailStatsPage);
-  })
+  });
 
 
   it('should take the user to the email details page that shows an error message if no file has been uploaded', () => {
@@ -120,5 +115,18 @@ describe("App", () => {
 
     const emailDetailsPage = getByText('No details found. Make sure you are uploading a one column csv with headers.')
     expect(emailDetailsPage);
+  });
+
+  it('should show an error message if a user goes to an undefined route', () => {
+    const history = createMemoryHistory();
+    history.push('/some/bad/route');
+    const { getByText, debug } = render (
+      <Router history={history}>
+        <App />
+      </Router>
+    )
+
+    const errorMsg = getByText('This page cannot be found.')
+    expect(errorMsg).toBeInTheDocument();
   })
 });

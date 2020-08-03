@@ -35,16 +35,6 @@ const App = () => {
     }
   }, [emails])
 
-  
-  // const getEmailData = async () => {
-  //   try {     
-  //     const data = await Promise.all(csvEmails.map(csvEmail => getEmailInfo(csvEmail.email)));    
-  //     setEmails(data);
-  //   } catch(error) {
-  //     setError(error.toString()); 
-  //   }
-  // }
-
   const filteredEmails = emails.filter(email => {
     return email.format_valid && email.mx_found && 
       email.smtp_check && !email.disposable
