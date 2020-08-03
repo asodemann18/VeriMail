@@ -1,6 +1,7 @@
 import React from 'react';
 import './Stats.css';
 import { Doughnut } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
 const Stats = ({statsBreakdown, avgScore}) => {
   const chart = (trueData, falseData) => {
@@ -43,7 +44,6 @@ const Stats = ({statsBreakdown, avgScore}) => {
           title: {text: formattedKey(), 
             display: true, 
             fontFamily: 'Open Sans', 
-            // fontColor: '#ef476f',
             fontColor: 'rgba(17,138,178, 1)',
             fontSize: 18,},
           legend: {
@@ -78,3 +78,10 @@ const Stats = ({statsBreakdown, avgScore}) => {
 }
 
 export default Stats;
+
+Stats.propTypes = {
+  statsBreakdown: PropTypes.object,
+  avgScore: PropTypes.number,
+  keys: PropTypes.array,
+  chartData: PropTypes.array
+};
