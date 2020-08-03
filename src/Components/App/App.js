@@ -6,7 +6,7 @@ import Stats from '../Stats/Stats';
 import Details from '../Details/Details';
 import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const App = () => {
@@ -58,11 +58,19 @@ const App = () => {
   
   return (
     <main>
-      <Header fileAdded={fileAdded}/>   
+      <Header />   
+      <Switch>
+      
       <Route 
-        exact path='/'
+        exact path='/email-details'
         render={() => (
-          <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+          <Details emails={emails}/>
+        )}
+      />
+       <Route 
+        exact path='/email-stats'
+        render={() => (
+          <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
         )}
       />
       <Route 
@@ -71,27 +79,23 @@ const App = () => {
           <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
         )}
       />
-      <Route 
-        exact path='/email-stats'
+       <Route 
+        exact path='/'
         render={() => (
-          <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
+          <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
         )}
       />
-      <Route 
-        exact path='/email-details'
-        render={() => (
-          <Details emails={emails}/>
-        )}
-      />
-<<<<<<< HEAD
-=======
       <Route 
         exact path='/:undefined'
         render={() => (
           <p className='undefined-route'>This page cannot be found.</p>
         )}
       />
->>>>>>> main
+
+
+
+      </Switch>
+     
     </main>
   );
 }
