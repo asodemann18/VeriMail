@@ -71,7 +71,7 @@ const App = () => {
         <Route 
           path='/email-details'
           render={() => (
-            <Details emails={emails}/>
+            <Details emails={emails} error={error} />
           )}
         />
          <Route 
@@ -106,10 +106,14 @@ const App = () => {
 export default App;
 
 App.propTypes = {
+  csvEmails: PropTypes.array,
+  setCsvEmails: PropTypes.func,
   emails: PropTypes.array,
   setEmails: PropTypes.func,
   fileAdded: PropTypes.bool,
   setFileAdded: PropTypes.func,
+  error: PropTypes.string,
+  setError: PropTypes.func,
   getEmailData: PropTypes.func,
   filteredEmails: PropTypes.array,
   statsList: PropTypes.array,
