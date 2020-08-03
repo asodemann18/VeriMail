@@ -17,12 +17,15 @@ const Form = (props) => {
   }
 
   const key = ["email"]
+  const buttonsEnabled = fileInput.length !== 0;
+
 
   return(
     <CsvParse
       keys={key}
       onDataUploaded={handleData}
       render={onChange => {
+        if(fileInput != []) {
         return(
           <form>
             <label>Upload Csv</label>
@@ -39,11 +42,12 @@ const Form = (props) => {
                 onClick={handleUpload}
                 type='button'
                 className='form-button'
+                disabled={!buttonsEnabled}
               >
                 Verify
               </button>
             </Link>
-          </form>)
+          </form>)}
       }}
   />
   ) 
