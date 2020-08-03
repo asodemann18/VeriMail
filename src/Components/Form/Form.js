@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Form.css'
-import CsvParse from '@vtex/react-csv-parse'
+import './Form.css';
+import CsvParse from '@vtex/react-csv-parse';
 import PropTypes from 'prop-types';
 
 const Form = (props) => {
@@ -17,9 +17,8 @@ const Form = (props) => {
     props.setCsvEmails(fileInput);
   }
 
-  const key = ["email"]
+  const key = ["email"];
   const buttonsEnabled = fileInput.length !== 0;
-
 
   return(
     <CsvParse
@@ -54,7 +53,7 @@ const Form = (props) => {
         )
       }}
     />
-  ) 
+  );
 }
 
 export default Form;

@@ -12,7 +12,7 @@ const sampleStatsBreakdown = {
   role: 25,
   disposable: 0,
   free: 75,
-}
+};
 
 const sampleAvgScore = 68;
 
@@ -23,7 +23,7 @@ const sampleFailingStatsBreakdown = {
   role: NaN,
   disposable: NaN,
   free: NaN,
-}
+};
 
 const sampleFailingAvgScore = NaN;
 
@@ -33,7 +33,8 @@ describe('Stats', () => {
       <MemoryRouter>
         <Stats statsBreakdown={sampleStatsBreakdown} avgScore={sampleAvgScore} />
       </MemoryRouter>
-    )
+    );
+
     const avgTitle = getByText('Average Overall Score');
     const avgScore = getByText('68%');
     const charts = getAllByTestId('chart');
@@ -48,7 +49,8 @@ describe('Stats', () => {
       <MemoryRouter>
         <Stats statsBreakdown={sampleFailingStatsBreakdown} avgScore={sampleFailingAvgScore} />
       </MemoryRouter>
-    )
+    );
+    
     const errorMsg = getByText('No stats found. Make sure you are uploading a one column csv with headers.')
     expect(errorMsg).toBeInTheDocument();
   })  

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const Details = ({emails, error}) => {
   const fixNulls = (data) => {
-    return data ? data.toString() : 'false'
+    return data ? data.toString() : 'false';
   }
 
   const emailDetails = emails.map(title => {
@@ -22,7 +22,7 @@ const Details = ({emails, error}) => {
         <td className='table-data'>{fixNulls(title.free)}</td>
         <td className='table-data'>{fixNulls(title.score)*100+'%'}</td>
       </tr>
-    )
+    );
   })
 
   return (
@@ -57,7 +57,7 @@ const Details = ({emails, error}) => {
         </section>
       }
     </>
-  )
+  );
 }
 
 export default Details;

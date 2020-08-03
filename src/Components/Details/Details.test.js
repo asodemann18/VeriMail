@@ -33,7 +33,7 @@ const sampleEmails = [
     "free": false,
     "score": 0.32
   }
-]
+];
 
 describe('Details', () => {
   it('should display a table with headers', () => {
@@ -73,7 +73,7 @@ describe('Details', () => {
       <MemoryRouter>
         <Details emails={sampleEmails}/>
       </MemoryRouter>
-    )
+    );
 
     const trueValues = getAllByText('true');
     const falseValues = getAllByText('false');
@@ -107,8 +107,7 @@ describe('Details', () => {
       </MemoryRouter>
     )
 
-    const errorMsg = getByText('No details found. Make sure you are uploading a one column csv with headers.')
+    const errorMsg = getByText('No details found. Make sure you are uploading a one column csv with headers.');
     expect(errorMsg).toBeInTheDocument();
-  })
-
+  });
 })

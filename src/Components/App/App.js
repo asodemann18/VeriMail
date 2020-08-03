@@ -31,14 +31,14 @@ const App = () => {
 
   useEffect(() => {
     if(emails.length && emails[0].success===false) {
-      setError('404: Could not verify Emails')
+      setError('404: Could not verify Emails');
     }
-  }, [emails])
+  }, [emails]);
 
   const filteredEmails = emails.filter(email => {
     return email.format_valid && email.mx_found && 
-      email.smtp_check && !email.disposable
-  })
+      email.smtp_check && !email.disposable;
+  });
 
   const statsList = [
     'format_valid',
@@ -47,18 +47,18 @@ const App = () => {
     'role',
     'disposable',
     'free' 
-  ]
+  ];
 
   const statsBreakdown = statsList.reduce((acc, stat) => {
     if (!acc[stat]) {
-      acc[stat] = Math.round((emails.filter(email => email[stat]).length / emails.length)*100)
+      acc[stat] = Math.round((emails.filter(email => email[stat]).length / emails.length)*100);
     }
-    return acc
-  },{})
+    return acc;
+  },{});
 
   const avgScore = emails.reduce((acc, email) => {
-    return acc += Math.round((email.score / emails.length)*100)
-  }, 0)
+    return acc += Math.round((email.score / emails.length)*100);
+  }, 0);
   
   return (
     <main>

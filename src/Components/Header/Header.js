@@ -2,7 +2,6 @@ import React from 'react';
 import './Header.css';
 import { Link } from 'react-router-dom';
 
-
 const Header = () => {
   return (
     <header>       
@@ -23,7 +22,7 @@ const Header = () => {
         </section>
       </div> 
     </header>
-  )
+  );
 }
 
 export default Header;

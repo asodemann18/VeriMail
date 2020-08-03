@@ -12,7 +12,7 @@ describe('Header', () => {
          fileAdded={true}
         />
       </MemoryRouter>
-    )
+    );
 
     const title = getByText('VeriMail');
     const details = getByText('Email Details');
