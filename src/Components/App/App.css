@@ -8,3 +8,11 @@ main {
   height: 100vh;
 }
 
+.undefined-route {
+  text-align: center;
+  margin-top: 5%;
+  font-size: 30px;
+  color: rgba(17,138,178, 1); 
+  font-family: 'Courgette';
+}
+

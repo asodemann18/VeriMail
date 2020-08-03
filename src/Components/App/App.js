@@ -81,6 +81,12 @@ const App = () => {
           <Details emails={emails}/>
         )}
       />
+      <Route 
+        exact path='/:undefined'
+        render={() => (
+          <p className='undefined-route'>This page cannot be found.</p>
+        )}
+      />
 
     </main>
   );
