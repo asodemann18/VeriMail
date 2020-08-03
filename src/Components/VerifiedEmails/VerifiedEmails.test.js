@@ -59,10 +59,7 @@ describe('Verified Emails', () => {
       </MemoryRouter>
     )
 
-    const title = getByText('Verified Emails');
     const errorMsg = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
-
-    expect(title).toBeInTheDocument();
     expect(errorMsg).toBeInTheDocument();
   })
 })

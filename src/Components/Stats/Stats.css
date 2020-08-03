@@ -28,15 +28,3 @@
   font-size: 45px;
   margin-top: 1%;
 }
-
-.error-message {
-  text-align: center;
-  margin-top: 5%;
-  color: rgba(17,138,178, 1); 
-  font-family: 'Courgette';
-  background-color: white;
-  width: fit-content;
-  padding: 2%;
-  border-radius: 10px;
-  margin-left: 28%;
-}
