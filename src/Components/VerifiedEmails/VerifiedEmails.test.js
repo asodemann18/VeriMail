@@ -44,11 +44,11 @@ describe('Verified Emails', () => {
     )
 
     const title = getByText('Verified Emails');
-    const passingEmail = getByText('test@gmail.com')
-    const failingEmail = queryByText('test@aol.com')
+    const passingEmail1 = getByText('test@gmail.com')
+    const passingEmail2 = queryByText('test@aol.com')
 
     expect(title).toBeInTheDocument();
-    expect(passingEmail).toBeInTheDocument();
-    expect(failingEmail).toBeInTheDocument();
+    expect(passingEmail1).toBeInTheDocument();
+    expect(passingEmail2).toBeInTheDocument();
   })
 })
