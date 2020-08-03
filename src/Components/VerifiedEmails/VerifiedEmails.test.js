@@ -51,4 +51,18 @@ describe('Verified Emails', () => {
     expect(passingEmail1).toBeInTheDocument();
     expect(passingEmail2).toBeInTheDocument();
   })
+
+  it('should display an error message if no emails were valid', () => {
+    const { getByText, queryByText } = render(
+      <MemoryRouter>
+        <VerifiedEmails filteredEmails={[]}/>
+      </MemoryRouter>
+    )
+
+    const title = getByText('Verified Emails');
+    const errorMsg = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
+
+    expect(title).toBeInTheDocument();
+    expect(errorMsg).toBeInTheDocument();
+  })
 })
