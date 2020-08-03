@@ -50,7 +50,7 @@ describe('Form', () => {
     expect(input.files).toEqual(['test.csv']);
   })
 
-  it.only('should be able to upload a csv in the form', async () => {
+  it('should be able to upload a csv in the form', async () => {
     const mockSetFileAdded = jest.fn()
     const mockSetCsvEmails = jest.fn()
 
@@ -67,16 +67,17 @@ describe('Form', () => {
       </MemoryRouter>
     )
 
-    // const file = new File(['test@gmail.com','test@gmail.com'], 'test.csv', {type: 'text/csv'});
+    const file = new File(['test1@gmail.com','test2@gmail.com'], 'test.csv', {type: 'text/csv'});
     const input = getByPlaceholderText('upload csv');
     const button = getByRole('button', {name: 'Verify'});
 
-    // userEvent.upload(input, file);
-    fireEvent.change(input, {target: {files: ['test.csv'], value: 'test@gmail.com'}});
-    button.disabled = false;
-    userEvent.click(button);
-    // console.log(input.files.item(0), 'file')
-    await waitFor(() => expect(mockSetFileAdded).toHaveBeenCalledWith());
+    await waitFor(() => userEvent.upload(input, file));
+    // button.disabled = false;
+    await waitFor(() => userEvent.click(button));
+    expect(input.files[0]).toStrictEqual(file);
+    expect(input.files.item(0)).toStrictEqual(file)
+    expect(input.files).toHaveLength(1)
+    // await waitFor(() => expect(mockSetFileAdded).toHaveBeenCalledWith(true));
     // await waitFor(() => expect(mockSetCsvEmails).toHaveBeenCalled());
   })
 
