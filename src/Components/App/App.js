@@ -7,7 +7,7 @@ import Details from '../Details/Details';
 import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
 import { Route } from 'react-router-dom';
-
+import PropTypes from 'prop-types';
 
 const App = () => {
   const [ emails, setEmails ] = useState([]);
@@ -87,3 +87,15 @@ const App = () => {
 }
 
 export default App;
+
+App.propTypes = {
+  emails: PropTypes.array,
+  setEmails: PropTypes.func,
+  fileAdded: PropTypes.bool,
+  setFileAdded: PropTypes.func,
+  getEmailData: PropTypes.func,
+  filteredEmails: PropTypes.array,
+  statsList: PropTypes.array,
+  statsBreakdown: PropTypes.object,
+  avgScore: PropTypes.number,
+};
