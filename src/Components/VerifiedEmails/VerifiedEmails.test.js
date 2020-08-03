@@ -33,7 +33,7 @@ const testFilteredEmails = [
     "free": true,
     "score": 0.8
   }  
-]
+];
 
 describe('Verified Emails', () => {
   it('should display emails that have been verified', () => {
@@ -44,8 +44,8 @@ describe('Verified Emails', () => {
     )
 
     const title = getByText('Verified Emails');
-    const passingEmail1 = getByText('test@gmail.com')
-    const passingEmail2 = queryByText('test@aol.com')
+    const passingEmail1 = getByText('test@gmail.com');
+    const passingEmail2 = queryByText('test@aol.com');
 
     expect(title).toBeInTheDocument();
     expect(passingEmail1).toBeInTheDocument();
@@ -59,7 +59,7 @@ describe('Verified Emails', () => {
       </MemoryRouter>
     )
 
-    const errorMsg = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
+    const errorMsg = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.');
     expect(errorMsg).toBeInTheDocument();
   })
 })
