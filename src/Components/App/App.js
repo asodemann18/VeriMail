@@ -60,42 +60,37 @@ const App = () => {
     <main>
       <Header />   
       <Switch>
-      
-      <Route 
-        exact path='/email-details'
-        render={() => (
-          <Details emails={emails}/>
-        )}
-      />
-       <Route 
-        exact path='/email-stats'
-        render={() => (
-          <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
-        )}
-      />
-      <Route 
-        exact path='/verified-emails'
-        render={() => (
-          <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
-        )}
-      />
-       <Route 
-        exact path='/'
-        render={() => (
-          <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
-        )}
-      />
-      <Route 
-        exact path='/:undefined'
-        render={() => (
-          <p className='undefined-route'>This page cannot be found.</p>
-        )}
-      />
-
-
-
-      </Switch>
-     
+        <Route 
+          path='/email-details'
+          render={() => (
+            <Details emails={emails}/>
+          )}
+        />
+         <Route 
+          path='/email-stats'
+          render={() => (
+            <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
+          )}
+        />
+        <Route 
+          path='/verified-emails'
+          render={() => (
+            <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
+          )}
+        />
+         <Route 
+          exact path='/'
+          render={() => (
+            <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+          )}
+        />
+        <Route 
+          path='/:undefined'
+          render={() => (
+            <p className='undefined-route'>This page cannot be found.</p>
+          )}
+        />
+      </Switch>  
     </main>
   );
 }
