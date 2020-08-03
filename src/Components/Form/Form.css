@@ -37,7 +37,8 @@ input {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   margin-top: 10%;
-  margin-bottom: 0;;
+  margin-bottom: 0;
+  width: 90px;
 }
 
 button:hover {
