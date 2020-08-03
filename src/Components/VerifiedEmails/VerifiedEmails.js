@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const VerifiedEmails = ({ filteredEmails, error }) => {
   const verifiedResults = filteredEmails.map(email => {
     return (
-      <tr>
+      <tr key={email.email}>
         <td>{email.email}</td>
       </tr>
     )

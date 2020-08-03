@@ -6,13 +6,15 @@ import Stats from '../Stats/Stats';
 import Details from '../Details/Details';
 import VerifiedEmails from '../VerifiedEmails/VerifiedEmails';
 import { getEmailInfo } from '../../apiCalls';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const App = () => {
   const [ emails, setEmails ] = useState([]);
   const [ fileAdded, setFileAdded ] = useState(false);
   const [error, setError] = useState('');
+  console.log(emails, 'emails');
+  
 
   useEffect(() => {
     if(fileAdded) {
@@ -56,38 +58,39 @@ const App = () => {
   
   return (
     <main>
-      <Header fileAdded={fileAdded}/>   
-      <Route 
-        exact path='/'
-        render={() => (
-          <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
-        )}
-      />
-      <Route 
-        exact path='/verified-emails'
-        render={() => (
-          <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
-        )}
-      />
-      <Route 
-        exact path='/email-stats'
-        render={() => (
-          <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
-        )}
-      />
-      <Route 
-        exact path='/email-details'
-        render={() => (
-          <Details emails={emails}/>
-        )}
-      />
-      <Route 
-        exact path='/:undefined'
-        render={() => (
-          <p className='undefined-route'>This page cannot be found.</p>
-        )}
-      />
-
+      <Header />   
+      <Switch>
+        <Route 
+          path='/email-details'
+          render={() => (
+            <Details emails={emails}/>
+          )}
+        />
+         <Route 
+          path='/email-stats'
+          render={() => (
+            <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
+          )}
+        />
+        <Route 
+          path='/verified-emails'
+          render={() => (
+            <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
+          )}
+        />
+         <Route 
+          exact path='/'
+          render={() => (
+            <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+          )}
+        />
+        <Route 
+          path='/:undefined'
+          render={() => (
+            <p className='undefined-route'>This page cannot be found.</p>
+          )}
+        />
+      </Switch>  
     </main>
   );
 }

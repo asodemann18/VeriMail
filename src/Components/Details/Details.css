@@ -15,21 +15,13 @@
 
 table {
   border-collapse: collapse;
-  table-layout: auto;
-}
-
-tr {
-  width: fit-content;
 }
 
 .table-header, .table-data {
-  padding: 1%;
+  padding: 10px;
+  width: fit-content !important;
   text-align: center;
   border: 1px black dashed;
-}
-
-.table-data {
-  width: fit-content !important;
 }
 
 .detail-title {
