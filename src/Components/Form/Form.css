@@ -1,9 +1,13 @@
+.form-container {
+  display: flex;
+  justify-content: center;
+}
+
 form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 38%;
-  margin-top: 10%;
+  margin-top: 8%;
   border: black solid 2px;
   border-radius: 10px;
   width: fit-content;
@@ -33,7 +37,8 @@ input {
   font-family: 'Open Sans', sans-serif;
   font-weight: bold;
   margin-top: 10%;
-  margin-bottom: 0;;
+  margin-bottom: 0;
+  width: 90px;
 }
 
 button:hover {

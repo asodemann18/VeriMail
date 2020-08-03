@@ -17,6 +17,8 @@ const Form = (props) => {
   }
 
   const key = ["email"]
+  const buttonsEnabled = fileInput.length !== 0;
+
 
   return(
     <CsvParse
@@ -24,8 +26,10 @@ const Form = (props) => {
       onDataUploaded={handleData}
       render={onChange => {
         return(
-          <form>
+          <section className='form-container'>
+             <form>
             <label>Upload Csv</label>
+            <p><strong>Note:</strong> Make sure the csv is one column and includes a header.</p>
             <input
               type='file'
               name='inputFile'
@@ -39,13 +43,16 @@ const Form = (props) => {
                 onClick={handleUpload}
                 type='button'
                 className='form-button'
+                disabled={!buttonsEnabled}
               >
                 Verify
               </button>
             </Link>
-          </form>)
+          </form>
+          </section>
+        )
       }}
-  />
+    />
   ) 
 }
 
