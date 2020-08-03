@@ -1,4 +1,4 @@
-import React from "react";
+import React,  { useState as useStateMock } from "react";
 import App from "./App";
 import "@testing-library/jest-dom";
 import { render, fireEvent, waitFor } from "@testing-library/react";
@@ -6,9 +6,13 @@ import { MemoryRouter } from "react-router-dom";
 import { getEmailInfo } from "../../apiCalls";
 import MutationObserver from "@sheerun/mutationobserver-shim";
 import { act } from "react-dom/test-utils";
-import CsvParse from '@vtex/react-csv-parse'
 window.MutationObserver = MutationObserver;
 jest.mock("../../apiCalls");
+
+jest.mock('react', () => ({
+  ...jest.requireActual('react'),
+  useState: jest.fn(),
+}));
 
 getEmailInfo.mockResolvedValue([
   {
@@ -42,7 +46,11 @@ getEmailInfo.mockResolvedValue([
 ]);
 
 describe("App", () => {
-  it.skip("should be able to upload a file, then be directed to the verified email page that only shows verified emails", async () => {
+  it.only("should be able to upload a file, then be directed to the verified email page that only shows verified emails", async () => {
+    const setState = jest.fn();
+    const useStateSpy = jest.spyOn(React, 'useState')
+    useStateSpy.mockImplementation((init) => [init, setState]);
+    
     const { getByPlaceholderText, getByText, getByRole } = render(
       <MemoryRouter>
         <App />
@@ -70,4 +78,47 @@ describe("App", () => {
     expect(pageTitle).toBeInTheDocument();
     // expect(sampleEmail).toBeInTheDocument();
   });
+
+  it('should take the user to the verified emails page that shows an error message if no file has been uploaded', () => {
+    const { getByText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const verifiedEmailsLink= getByText('Verified Emails');
+    fireEvent.click(verifiedEmailsLink);
+
+    const verifiedEmailsPage = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
+    expect(verifiedEmailsPage);
+  })
+
+  it('should take the user to the email stats page that shows an error message if no file has been uploaded', () => {
+    const { getByText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const emailStatsLink= getByText('Email Stats');
+    fireEvent.click(emailStatsLink);
+
+    const emailStatsPage = getByText('No stats found. Make sure you are uploading a one column csv with headers.')
+    expect(emailStatsPage);
+  })
+
+
+  it('should take the user to the email details page that shows an error message if no file has been uploaded', () => {
+    const { getByText } = render(
+      <MemoryRouter>
+        <App />
+      </MemoryRouter>
+    );
+
+    const emailDetailsLink= getByText('Email Details');
+    fireEvent.click(emailDetailsLink);
+
+    const emailDetailsPage = getByText('No details found. Make sure you are uploading a one column csv with headers.')
+    expect(emailDetailsPage);
+  })
 });

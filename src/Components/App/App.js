@@ -17,27 +17,33 @@ const App = () => {
   
   useEffect(() => {
     if(fileAdded) {
+      const getEmailData = async () => {
+        try {     
+          const data = await Promise.all(csvEmails.map(csvEmail => getEmailInfo(csvEmail.email)));    
+          setEmails(data);
+        } catch(error) {
+          setError(error.toString()); 
+        }
+      }
       getEmailData();
     }
-  },[fileAdded]);
+  },[fileAdded, csvEmails]);
 
   useEffect(() => {
     if(emails.length && emails[0].success===false) {
       setError('404: Could not verify Emails')
-      console.log(emails)
-      console.log(error,'error')
     }
   }, [emails])
 
   
-  const getEmailData = async () => {
-    try {     
-      const data = await Promise.all(csvEmails.map(csvEmail => getEmailInfo(csvEmail.email)));    
-      setEmails(data);
-    } catch(error) {
-      setError(error.toString()); 
-    }
-  }
+  // const getEmailData = async () => {
+  //   try {     
+  //     const data = await Promise.all(csvEmails.map(csvEmail => getEmailInfo(csvEmail.email)));    
+  //     setEmails(data);
+  //   } catch(error) {
+  //     setError(error.toString()); 
+  //   }
+  // }
 
   const filteredEmails = emails.filter(email => {
     return email.format_valid && email.mx_found && 

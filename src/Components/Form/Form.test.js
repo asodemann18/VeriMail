@@ -53,6 +53,12 @@ describe('Form', () => {
   it.only('should be able to upload a csv in the form', async () => {
     const mockSetFileAdded = jest.fn()
     const mockSetEmails = jest.fn()
+
+    const mockSetState = jest.fn();
+    jest.mock('react', () => ({
+      useState: initial => [initial, mockSetState]
+    }))
+
     const { getByPlaceholderText, getByRole } = render(
       <MemoryRouter>
         <Form 
