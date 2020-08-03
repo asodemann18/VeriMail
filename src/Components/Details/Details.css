@@ -24,12 +24,6 @@ table {
   border: 1px black dashed;
 }
 
-/* .table-header {
-  padding: 10px;
-  border: 1px black dashed;
-  width: fit-content;
-} */
-
 .detail-title {
   color: rgba(17,138,178, 1);
   font-family: 'Open Sans', sans-serif;
