@@ -12,18 +12,22 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
   })
 
   return (
-    <section className='verified-container'>
-      <section className='verified-section'>
-        <h3 className='verified-title'>Verified Emails</h3>
-        {error && <p>{error}</p>}
-        {!error && !verifiedResults.length && <p>No verified emails found. Make sure you are uploading a one column csv with headers.</p>}
-        <table>
-          <tbody>
-           {!error && verifiedResults}
-          </tbody>
-        </table>
-      </section>
-    </section>
+    <>
+      {error && <p className='error-message'>{error}</p>}
+      {!error && !verifiedResults.length && <p className='error-message'>No verified emails found. Make sure you are uploading a one column csv with headers.</p>}
+      {!error && verifiedResults.length > 0 &&
+        <section className='verified-container'>
+          <section className='verified-section'>
+            <h3 className='verified-title'>Verified Emails</h3>
+            <table>
+              <tbody>
+               {verifiedResults}
+              </tbody>
+            </table>
+          </section>
+        </section>
+      } 
+    </>
   )
 }
 
@@ -31,6 +35,6 @@ export default VerifiedEmails;
 
 VerifiedEmails.propTypes = {
   filteredEmails: PropTypes.array,
-  // error: PropTypes.???,
+  error: PropTypes.string,
   verifiedResults: PropTypes.array,
 };

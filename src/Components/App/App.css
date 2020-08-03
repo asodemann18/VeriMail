@@ -8,11 +8,21 @@ main {
   height: 100vh;
 }
 
-.undefined-route {
+.error-message, .undefined-route  {
   text-align: center;
   margin-top: 5%;
-  font-size: 30px;
   color: rgba(17,138,178, 1); 
   font-family: 'Courgette';
+  background-color: white;
+  width: fit-content;
+  padding: 2%;
+  border-radius: 10px;
+  margin-left: 28%;
+  font-size: 20px;
 }
+
+.undefined-route {
+  margin-left: 40% !important;
+}
+
 
