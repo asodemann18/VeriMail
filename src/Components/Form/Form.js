@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Form.css'
 import CsvParse from '@vtex/react-csv-parse'
+import PropTypes from 'prop-types';
 
 const Form = (props) => {
 	const [ fileInput, setFileInput ] = useState([]);
@@ -57,3 +58,14 @@ const Form = (props) => {
 }
 
 export default Form;
+
+Form.propTypes = {
+  setFileAdded: PropTypes.func,
+  setEmails: PropTypes.func,
+  fileInput: PropTypes.array,
+  setFileInput: PropTypes.func,
+  handleData: PropTypes.func,
+  handleUpload: PropTypes.func,
+  key: PropTypes.array,
+  buttonsEnabled: PropTypes.bool,
+};

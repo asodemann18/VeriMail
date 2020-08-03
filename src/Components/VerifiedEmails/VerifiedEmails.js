@@ -1,5 +1,6 @@
 import React from 'react';
 import './VerifiedEmails.css';
+import PropTypes from 'prop-types';
 
 const VerifiedEmails = ({ filteredEmails, error }) => {
   const verifiedResults = filteredEmails.map(email => {
@@ -27,3 +28,9 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
 }
 
 export default VerifiedEmails;
+
+VerifiedEmails.propTypes = {
+  filteredEmails: PropTypes.array,
+  // error: PropTypes.???,
+  verifiedResults: PropTypes.array,
+};
