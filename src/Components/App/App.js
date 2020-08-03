@@ -81,6 +81,12 @@ const App = () => {
           <Details emails={emails}/>
         )}
       />
+      <Route 
+        exact path='/:undefined'
+        render={() => (
+          <p>Page not found.</p>
+        )}
+      />
 
     </main>
   );
