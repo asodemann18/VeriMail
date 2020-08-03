@@ -8,8 +8,8 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
       <tr key={email.email}>
         <td>{email.email}</td>
       </tr>
-    )
-  })
+    );
+  });
 
   return (
     <>
@@ -28,7 +28,7 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
         </section>
       } 
     </>
-  )
+  );
 }
 
 export default VerifiedEmails;

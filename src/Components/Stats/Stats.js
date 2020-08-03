@@ -62,7 +62,7 @@ const Stats = ({statsBreakdown, avgScore, error}) => {
           }
         }}/>
       </section>
-    )
+    );
   })
 
   return (
@@ -78,9 +78,8 @@ const Stats = ({statsBreakdown, avgScore, error}) => {
           {chartData}
         </section>
       }
-  </>
-  )
-
+    </>
+  );
 }
 
 export default Stats;
