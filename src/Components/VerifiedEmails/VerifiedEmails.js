@@ -12,15 +12,6 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
   })
 
   return (
-<<<<<<< HEAD
-    <section className='verified-section'>
-      <h3 className='verified-title'>Verified Emails</h3>
-      <table>
-        <tbody>
-          {verifiedResults.length && verifiedResults}
-        </tbody>
-      </table>
-=======
     <section className='verified-container'>
       <section className='verified-section'>
         <h3 className='verified-title'>Verified Emails</h3>
@@ -32,7 +23,6 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
           </tbody>
         </table>
       </section>
->>>>>>> main
     </section>
   )
 }

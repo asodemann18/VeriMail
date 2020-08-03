@@ -83,7 +83,6 @@ const App = () => {
           <Details emails={emails}/>
         )}
       />
-
     </main>
   );
 }

@@ -7,7 +7,7 @@ const Details = ({emails}) => {
     return data ? data.toString() : 'false'
   }
 
-  const emailDetailsTitles = emails.map(title => {
+  const emailDetails = emails.map(title => {
     return (
       <tr key={title.email}>
         <td className='table-data'>{title.email}</td>
@@ -46,7 +46,7 @@ const Details = ({emails}) => {
           </tr>
         </thead>
         <tbody>
-          {emailDetailsTitles}
+          {emailDetails}
         </tbody>
       </table>
       </section>

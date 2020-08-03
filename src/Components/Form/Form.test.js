@@ -5,17 +5,10 @@ import { render, fireEvent, waitFor, getByLabelText } from '@testing-library/rea
 import { MemoryRouter } from 'react-router-dom';
 
 describe('Form', () => {
-<<<<<<< HEAD
-  it('should display a form with a label', () => {
-    const mockSetFileAdded = jest.fn()
-    const mockSetEmails = jest.fn()
-    const { getByPlaceholderText, getByRole, getByText } = render(
-=======
   it('should display a form with instructions and a title', () => {
     const mockSetFileAdded = jest.fn()
     const mockSetEmails = jest.fn()
     const { getByText, getByPlaceholderText, getByRole } = render(
->>>>>>> main
       <MemoryRouter>
         <Form 
          setFileAdded={mockSetFileAdded}
@@ -23,13 +16,9 @@ describe('Form', () => {
         />
       </MemoryRouter>
     )
-<<<<<<< HEAD
-    const title = getByText('Upload Csv');
-=======
     
     const title = getByText('Upload Csv')
     const instructions = getByText('Make sure the csv is one column and includes a header.')
->>>>>>> main
     const input = getByPlaceholderText('upload csv');
     const button = getByRole('button', {name: 'Verify'});
 
@@ -69,12 +58,8 @@ describe('Form', () => {
         />
       </MemoryRouter>
     )
-<<<<<<< HEAD
-      
-=======
 
     const file = new File(['test@gmail.com'], 'test.csv');
->>>>>>> main
     const input = getByPlaceholderText('upload csv');
     const button = getByRole('button', {name: 'Verify'});
 

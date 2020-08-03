@@ -8,14 +8,8 @@ const Form = (props) => {
 	const [ fileInput, setFileInput ] = useState([]);
 
   const handleData = (data) => {
-<<<<<<< HEAD
-    setFileInput(data);
-    console.log(data, 'data');
-    
-=======
     setFileInput(data)
     props.setFileAdded(false)
->>>>>>> main
   }
 
   const handleUpload = () => {
@@ -24,13 +18,9 @@ const Form = (props) => {
     // console.log('test')
   }
 
-<<<<<<< HEAD
-  const key = ["email"];
-=======
   const key = ["email"]
   const buttonsEnabled = fileInput.length !== 0;
 
->>>>>>> main
 
   return(
     <CsvParse
