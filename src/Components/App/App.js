@@ -87,7 +87,6 @@ const App = () => {
           <p className='undefined-route'>This page cannot be found.</p>
         )}
       />
-
     </main>
   );
 }
