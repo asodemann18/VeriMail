@@ -2,14 +2,20 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Form.css'
 import CsvParse from '@vtex/react-csv-parse'
+import PropTypes from 'prop-types';
 
 const Form = (props) => {
 	const [ fileInput, setFileInput ] = useState([]);
 
   const handleData = (data) => {
+<<<<<<< HEAD
     setFileInput(data);
     console.log(data, 'data');
     
+=======
+    setFileInput(data)
+    props.setFileAdded(false)
+>>>>>>> main
   }
 
   const handleUpload = () => {
@@ -18,7 +24,13 @@ const Form = (props) => {
     // console.log('test')
   }
 
+<<<<<<< HEAD
   const key = ["email"];
+=======
+  const key = ["email"]
+  const buttonsEnabled = fileInput.length !== 0;
+
+>>>>>>> main
 
   return(
     <CsvParse
@@ -26,8 +38,10 @@ const Form = (props) => {
       onDataUploaded={handleData}
       render={onChange => {
         return(
-          <form>
+          <section className='form-container'>
+             <form>
             <label>Upload Csv</label>
+            <p><strong>Note:</strong> Make sure the csv is one column and includes a header.</p>
             <input
               type='file'
               name='inputFile'
@@ -41,14 +55,28 @@ const Form = (props) => {
                 onClick={handleUpload}
                 type='button'
                 className='form-button'
+                disabled={!buttonsEnabled}
               >
                 Verify
               </button>
             </Link>
-          </form>)
+          </form>
+          </section>
+        )
       }}
-  />
+    />
   ) 
 }
 
 export default Form;
+
+Form.propTypes = {
+  setFileAdded: PropTypes.func,
+  setEmails: PropTypes.func,
+  fileInput: PropTypes.array,
+  setFileInput: PropTypes.func,
+  handleData: PropTypes.func,
+  handleUpload: PropTypes.func,
+  key: PropTypes.array,
+  buttonsEnabled: PropTypes.bool,
+};

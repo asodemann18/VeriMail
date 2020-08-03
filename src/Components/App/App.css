@@ -1,5 +1,5 @@
 main {
-  background:linear-gradient(0deg, rgba(73, 73, 73, 1), rgba(73, 73, 73, 1)), url('../../images/desk.png');
+  background:linear-gradient(0deg, rgba(73, 73, 73, .8), rgba(73, 73, 73, 1)), url('../../images/desk.png');
   background-size: cover;
   background-blend-mode: multiply;
   background-repeat: no-repeat;
