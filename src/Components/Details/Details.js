@@ -1,5 +1,6 @@
 import React from 'react';
 import './Details.css';
+import PropTypes from 'prop-types';
 
 const Details = ({emails}) => {
   const fixNulls = (data) => {
@@ -19,7 +20,7 @@ const Details = ({emails}) => {
         <td className='table-data'>{fixNulls(title.role)}</td>
         <td className='table-data'>{fixNulls(title.disposable)}</td>
         <td className='table-data'>{fixNulls(title.free)}</td>
-        <td className='table-data'>{fixNulls(title.score)}</td>
+        <td className='table-data'>{fixNulls(title.score)*100+'%'}</td>
       </tr>
     )
   })
@@ -54,3 +55,9 @@ const Details = ({emails}) => {
 }
 
 export default Details;
+
+Details.propTypes = {
+  emails: PropTypes.array,
+  fixNulls: PropTypes.func,
+  emailDetailsTitles: PropTypes.array,
+};
