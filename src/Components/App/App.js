@@ -77,7 +77,7 @@ const App = () => {
          <Route 
           path='/email-stats'
           render={() => (
-            <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
+            <Stats statsBreakdown={statsBreakdown} avgScore={avgScore} error={error}/>
           )}
         />
         <Route 
