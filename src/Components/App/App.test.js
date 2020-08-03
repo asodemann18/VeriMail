@@ -75,52 +75,61 @@ describe("App", () => {
   });
 
   it('should take the user to the verified emails page that shows an error message if no file has been uploaded', () => {
-    const { getByText } = render(
-      <MemoryRouter>
+    const history = createMemoryHistory();
+    const { getByText } = render (
+      <Router history={history}>
         <App />
-      </MemoryRouter>
-    );
+      </Router>
+    )
+      
 
     const verifiedEmailsLink= getByText('Verified Emails');
     fireEvent.click(verifiedEmailsLink);
 
     const verifiedEmailsPage = getByText('No verified emails found. Make sure you are uploading a one column csv with headers.')
-    expect(verifiedEmailsPage);
+    expect(verifiedEmailsPage).toBeInTheDocument();
+    expect(history.location.pathname).toBe("/verified-emails")
   });
 
   it('should take the user to the email stats page that shows an error message if no file has been uploaded', () => {
-    const { getByText } = render(
-      <MemoryRouter>
+    const history = createMemoryHistory();
+    const { getByText } = render (
+      <Router history={history}>
         <App />
-      </MemoryRouter>
-    );
+      </Router>
+    )
 
     const emailStatsLink= getByText('Email Stats');
     fireEvent.click(emailStatsLink);
 
     const emailStatsPage = getByText('No stats found. Make sure you are uploading a one column csv with headers.')
-    expect(emailStatsPage);
+    expect(emailStatsPage).toBeInTheDocument();
+    expect(history.location.pathname).toBe("/email-stats")
+
   });
 
 
   it('should take the user to the email details page that shows an error message if no file has been uploaded', () => {
-    const { getByText } = render(
-      <MemoryRouter>
+    const history = createMemoryHistory();
+    const { getByText } = render (
+      <Router history={history}>
         <App />
-      </MemoryRouter>
-    );
+      </Router>
+    )
 
     const emailDetailsLink= getByText('Email Details');
     fireEvent.click(emailDetailsLink);
 
     const emailDetailsPage = getByText('No details found. Make sure you are uploading a one column csv with headers.')
-    expect(emailDetailsPage);
+    expect(emailDetailsPage).toBeInTheDocument();
+    expect(history.location.pathname).toBe("/email-details")
+
   });
 
   it('should show an error message if a user goes to an undefined route', () => {
     const history = createMemoryHistory();
     history.push('/some/bad/route');
-    const { getByText, debug } = render (
+    const { getByText } = render (
       <Router history={history}>
         <App />
       </Router>

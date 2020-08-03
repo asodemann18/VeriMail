@@ -50,7 +50,7 @@ describe('Form', () => {
     expect(input.files).toEqual(['test.csv']);
   })
 
-  it.skip('should be able to upload a csv in the form', async () => {
+  it.only('should be able to upload a csv in the form', async () => {
     const mockSetFileAdded = jest.fn()
     const mockSetCsvEmails = jest.fn()
 
@@ -72,7 +72,7 @@ describe('Form', () => {
     const button = getByRole('button', {name: 'Verify'});
 
     // userEvent.upload(input, file);
-    fireEvent.change(input, {target: {files: ['test.csv']}});
+    fireEvent.change(input, {target: {files: ['test.csv'], value: 'test@gmail.com'}});
     button.disabled = false;
     userEvent.click(button);
     // console.log(input.files.item(0), 'file')
