@@ -16,6 +16,17 @@ const sampleStatsBreakdown = {
 
 const sampleAvgScore = 68;
 
+const sampleFailingStatsBreakdown = {
+  format_valid: NaN,
+  mx_found: NaN,
+  smtp_check: NaN,
+  role: NaN,
+  disposable: NaN,
+  free: NaN,
+}
+
+const sampleFailingAvgScore = NaN;
+
 describe('Stats', () => {
   it('should display six charts and an average overall score', () => {
     const { getAllByTestId, getByText } = render(
@@ -31,4 +42,14 @@ describe('Stats', () => {
     expect(avgScore).toBeInTheDocument();
     expect(charts.length).toEqual(6);
   })    
+
+  it('should display an error message if no file has been uploaded', () => {
+    const { getByText } = render(
+      <MemoryRouter>
+        <Stats statsBreakdown={sampleFailingStatsBreakdown} avgScore={sampleFailingAvgScore} />
+      </MemoryRouter>
+    )
+    const errorMsg = getByText('No stats found. Make sure you are uploading a one column csv with headers.')
+    expect(errorMsg).toBeInTheDocument();
+  })  
 })

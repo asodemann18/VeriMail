@@ -2,7 +2,7 @@ import React from 'react';
 import './Details.css';
 import PropTypes from 'prop-types';
 
-const Details = ({emails}) => {
+const Details = ({emails, error}) => {
   const fixNulls = (data) => {
     return data ? data.toString() : 'false'
   }
@@ -26,31 +26,37 @@ const Details = ({emails}) => {
   })
 
   return (
-    <section className='detail-container'>
-      <section className='detail-section'>
-      <h3 className='detail-title'>Email Details</h3>
-      <table>
-        <thead>
-          <tr>
-            <th className='table-header'>Email</th>
-            <th className='table-header'>Did you mean?</th>
-            <th className='table-header'>User</th>
-            <th className='table-header'>Domain</th>
-            <th className='table-header'>Valid Format</th>
-            <th className='table-header'>Valid Domain</th>
-            <th className='table-header'>Valid User</th>
-            <th className='table-header'>Role</th>
-            <th className='table-header'>Disposable</th>
-            <th className='table-header'>Free</th>
-            <th className='table-header'>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {emailDetails}
-        </tbody>
-      </table>
-      </section>
-    </section>
+    <>
+      {error && <p className='error-message'>{error}</p>}
+      {!error && !emails.length && <p className='error-message'>No details found. Make sure you are uploading a one column csv with headers.</p>}
+      {!error && emails.length > 0 &&
+        <section className='detail-container'>
+          <section className='detail-section'>
+          <h3 className='detail-title'>Email Details</h3>
+          <table>
+            <thead>
+              <tr>
+                <th className='table-header'>Email</th>
+                <th className='table-header'>Did you mean?</th>
+                <th className='table-header'>User</th>
+                <th className='table-header'>Domain</th>
+                <th className='table-header'>Valid Format</th>
+                <th className='table-header'>Valid Domain</th>
+                <th className='table-header'>Valid User</th>
+                <th className='table-header'>Role</th>
+                <th className='table-header'>Disposable</th>
+                <th className='table-header'>Free</th>
+                <th className='table-header'>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              {emailDetails}
+            </tbody>
+          </table>
+          </section>
+        </section>
+      }
+    </>
   )
 }
 
@@ -60,4 +66,5 @@ Details.propTypes = {
   emails: PropTypes.array,
   fixNulls: PropTypes.func,
   emailDetailsTitles: PropTypes.array,
+  error: PropTypes.string,
 };

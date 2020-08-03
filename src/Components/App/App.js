@@ -10,21 +10,29 @@ import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const App = () => {
-  const [ emails, setEmails ] = useState([]);
+  const [ csvEmails, setCsvEmails ] = useState([]);
   const [ fileAdded, setFileAdded ] = useState(false);
+  const [ emails, setEmails ] = useState([]);
   const [error, setError] = useState('');
-  console.log(emails, 'emails');
   
-
   useEffect(() => {
     if(fileAdded) {
       getEmailData();
     }
   },[fileAdded]);
+
+  useEffect(() => {
+    if(emails.length && emails[0].success===false) {
+      setError('404: Could not verify Emails')
+      console.log(emails)
+      console.log(error,'error')
+    }
+  }, [emails])
+
   
   const getEmailData = async () => {
     try {     
-      const data = await Promise.all(emails.map(email => getEmailInfo(email.email)));      
+      const data = await Promise.all(csvEmails.map(csvEmail => getEmailInfo(csvEmail.email)));    
       setEmails(data);
     } catch(error) {
       setError(error.toString()); 
@@ -63,13 +71,13 @@ const App = () => {
         <Route 
           path='/email-details'
           render={() => (
-            <Details emails={emails}/>
+            <Details emails={emails} error={error} />
           )}
         />
          <Route 
           path='/email-stats'
           render={() => (
-            <Stats statsBreakdown={statsBreakdown} avgScore={avgScore}/>
+            <Stats statsBreakdown={statsBreakdown} avgScore={avgScore} error={error}/>
           )}
         />
         <Route 
@@ -81,7 +89,7 @@ const App = () => {
          <Route 
           exact path='/'
           render={() => (
-            <Form setFileAdded={setFileAdded} setEmails={setEmails}/>
+            <Form setFileAdded={setFileAdded} setCsvEmails={setCsvEmails}/>
           )}
         />
         <Route 
@@ -98,10 +106,14 @@ const App = () => {
 export default App;
 
 App.propTypes = {
+  csvEmails: PropTypes.array,
+  setCsvEmails: PropTypes.func,
   emails: PropTypes.array,
   setEmails: PropTypes.func,
   fileAdded: PropTypes.bool,
   setFileAdded: PropTypes.func,
+  error: PropTypes.string,
+  setError: PropTypes.func,
   getEmailData: PropTypes.func,
   filteredEmails: PropTypes.array,
   statsList: PropTypes.array,

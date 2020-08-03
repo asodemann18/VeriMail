@@ -8,18 +8,13 @@ const Form = (props) => {
 	const [ fileInput, setFileInput ] = useState([]);
 
   const handleData = (data) => {
-    setFileInput(data)
-    // console.log(fileInput, 'input');
-    console.log(fileInput.length, 'length');
-    
+    setFileInput(data)    
     props.setFileAdded(false)
   }
 
   const handleUpload = () => {
     props.setFileAdded(true);
-    props.setEmails(fileInput);
-
-    // console.log('test')
+    props.setCsvEmails(fileInput);
   }
 
   const key = ["email"]
@@ -66,7 +61,7 @@ export default Form;
 
 Form.propTypes = {
   setFileAdded: PropTypes.func,
-  setEmails: PropTypes.func,
+  setCsvEmails: PropTypes.func,
   fileInput: PropTypes.array,
   setFileInput: PropTypes.func,
   handleData: PropTypes.func,

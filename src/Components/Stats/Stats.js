@@ -3,7 +3,7 @@ import './Stats.css';
 import { Doughnut } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
 
-const Stats = ({statsBreakdown, avgScore}) => {
+const Stats = ({statsBreakdown, avgScore, error}) => {
   const chart = (trueData, falseData) => {
     return (
       {labels: ['True', 'False'],
@@ -66,13 +66,19 @@ const Stats = ({statsBreakdown, avgScore}) => {
   })
 
   return (
-    <section className='chart-section'>
-      <section className='chart'>
-        <h3 id='avg-title'>Average Overall Score</h3>
-        <p id='avg-score'>{avgScore + '%'}</p>
-      </section>
-      {chartData}
-    </section>
+    <>
+      {error && <p className='error-message'>{error}</p>}
+      {!error && isNaN(statsBreakdown.disposable)  && <p  className='error-message'>No stats found. Make sure you are  uploading a one column csv with headers.</p>}
+      {!error && !isNaN(statsBreakdown.disposable) &&
+        <section className='chart-section'>
+          <section className='chart'>
+            <h3 id='avg-title'>Average Overall Score</h3>
+            <p id='avg-score'>{avgScore + '%'}</p>
+          </section>
+          {chartData}
+        </section>
+      }
+  </>
   )
 
 }
@@ -82,6 +88,7 @@ export default Stats;
 Stats.propTypes = {
   statsBreakdown: PropTypes.object,
   avgScore: PropTypes.number,
+  error: PropTypes.string,
   keys: PropTypes.array,
   chartData: PropTypes.array
 };
