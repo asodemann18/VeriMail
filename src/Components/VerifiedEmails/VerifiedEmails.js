@@ -2,7 +2,7 @@ import React from 'react';
 import './VerifiedEmails.css';
 import PropTypes from 'prop-types';
 
-const VerifiedEmails = ({ filteredEmails, error, isLoading }) => {
+const VerifiedEmails = ({ filteredEmails, error }) => {
   const verifiedResults = filteredEmails.map(email => {
     return (
       <tr key={email.email}>
@@ -13,9 +13,14 @@ const VerifiedEmails = ({ filteredEmails, error, isLoading }) => {
 
   return (
     <>
-      {error && <p className='error-message'>{error}</p>}
-      {!error && !verifiedResults.length && <p className='error-message'>No verified emails found. Make sure you are uploading a one column csv with headers.</p>}
-      {isLoading === true && console.log('loading') && <p className='error-message'>Loading...</p>}
+      {error && 
+        <section className='error-section'>
+          <p className='error-message'>{error}</p>
+        </section>}
+      {!error && !verifiedResults.length && 
+        <section className='error-section'>
+          <p className='error-message'>No verified emails found. Make sure you are uploading a one column csv with headers.</p>
+        </section>}
       {!error && verifiedResults.length > 0 && 
         <section className='verified-container'>
           <section className='verified-section'>

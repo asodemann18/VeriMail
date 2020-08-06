@@ -80,8 +80,13 @@ const App = () => {
           )}
         />
         <Route path='/verified-emails'>
-           {isLoading && <p>Loading...</p>}
-           <VerifiedEmails filteredEmails={filteredEmails} error={error} loading={isLoading}/>
+           {isLoading && 
+            <section className='loading-section'>
+              <p className='loading-message'>Loading...</p>
+            </section>}
+           {!isLoading &&
+            <VerifiedEmails filteredEmails={filteredEmails} error={error} loading={isLoading}/>
+           }
         </Route>
          <Route 
           exact path='/'
@@ -92,7 +97,9 @@ const App = () => {
         <Route 
           path='/:undefined'
           render={() => (
-            <p className='undefined-route'>This page cannot be found.</p>
+            <section className='error-section'>
+              <p className='error-message'>This page cannot be found.</p>
+            </section>
           )}
         />
       </Switch>  
