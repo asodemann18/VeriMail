@@ -8,7 +8,12 @@ main {
   height: 100vh;
 }
 
-.error-message, .undefined-route  {
+.error-section, .loading-section {
+  display: flex;
+  justify-content: center;
+}
+
+.error-message, .loading-message {
   text-align: center;
   margin-top: 5%;
   color: rgba(17,138,178, 1); 
@@ -17,12 +22,8 @@ main {
   width: fit-content;
   padding: 2%;
   border-radius: 10px;
-  margin-left: 23%;
+  /* margin-left: 23%; */
   font-size: 20px;
-}
-
-.undefined-route {
-  margin-left: 40% !important;
 }
 
 

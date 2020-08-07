@@ -13,9 +13,15 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
 
   return (
     <>
-      {error && <p className='error-message'>{error}</p>}
-      {!error && !verifiedResults.length && <p className='error-message'>No verified emails found. Make sure you are uploading a one column csv with headers.</p>}
-      {!error && verifiedResults.length > 0 &&
+      {error && 
+        <section className='error-section'>
+          <p className='error-message'>{error}</p>
+        </section>}
+      {!error && !verifiedResults.length && 
+        <section className='error-section'>
+          <p className='error-message'>No verified emails found. Make sure you are uploading a one column csv with headers.</p>
+        </section>}
+      {!error && verifiedResults.length > 0 && 
         <section className='verified-container'>
           <section className='verified-section'>
             <h3 className='verified-title'>Verified Emails</h3>

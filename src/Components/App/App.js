@@ -13,14 +13,17 @@ const App = () => {
   const [ csvEmails, setCsvEmails ] = useState([]);
   const [ fileAdded, setFileAdded ] = useState(false);
   const [ emails, setEmails ] = useState([]);
-  const [error, setError] = useState('');
+  const [ isLoading, setIsLoading ] = useState(false);
+  const [error, setError ] = useState('');
   
   useEffect(() => {
     if(fileAdded) {
       const getEmailData = async () => {
+      setIsLoading(true);
         try {     
           const data = await Promise.all(csvEmails.map(csvEmail => getEmailInfo(csvEmail.email)));    
           setEmails(data);
+          setIsLoading(false);
         } catch(error) {
           setError(error.toString()); 
         }
@@ -76,22 +79,27 @@ const App = () => {
             <Stats statsBreakdown={statsBreakdown} avgScore={avgScore} error={error}/>
           )}
         />
-        <Route 
-          path='/verified-emails'
-          render={() => (
-            <VerifiedEmails filteredEmails={filteredEmails} error={error}/>
-          )}
-        />
+        <Route path='/verified-emails'>
+           {isLoading && 
+            <section className='loading-section'>
+              <p className='loading-message'>Loading...</p>
+            </section>}
+           {!isLoading &&
+            <VerifiedEmails filteredEmails={filteredEmails} error={error} loading={isLoading}/>
+           }
+        </Route>
          <Route 
           exact path='/'
           render={() => (
-            <Form setFileAdded={setFileAdded} setCsvEmails={setCsvEmails}/>
+            <Form setFileAdded={setFileAdded} setCsvEmails={setCsvEmails} />
           )}
         />
         <Route 
           path='/:undefined'
           render={() => (
-            <p className='undefined-route'>This page cannot be found.</p>
+            <section className='error-section'>
+              <p className='error-message'>This page cannot be found.</p>
+            </section>
           )}
         />
       </Switch>  
