@@ -1,6 +1,7 @@
 import React from 'react';
 import './VerifiedEmails.css';
 import PropTypes from 'prop-types';
+import { CSVLink } from "react-csv";
 
 const VerifiedEmails = ({ filteredEmails, error }) => {
   const verifiedResults = filteredEmails.map(email => {
@@ -10,6 +11,10 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
       </tr>
     );
   });
+
+  // const handleDownload = () => {
+
+  // }
 
   return (
     <>
@@ -30,6 +35,9 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
                {verifiedResults}
               </tbody>
             </table>
+            <CSVLink data={filteredEmails.map(email => {
+              return {verifiedEmails: email.email}
+            })}>Download Results</CSVLink>
           </section>
         </section>
       } 
