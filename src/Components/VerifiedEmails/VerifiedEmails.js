@@ -12,9 +12,9 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
     );
   });
 
-  // const handleDownload = () => {
-
-  // }
+  const csvVerifiedEmails = filteredEmails.map(email => {
+    return {verifiedEmails: email.email}
+  })
 
   return (
     <>
@@ -35,9 +35,7 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
                {verifiedResults}
               </tbody>
             </table>
-            <CSVLink data={filteredEmails.map(email => {
-              return {verifiedEmails: email.email}
-            })}>Download Results</CSVLink>
+            <CSVLink data={csvVerifiedEmails} filename={'verified-emails'}>Download Results</CSVLink>
           </section>
         </section>
       } 
