@@ -37,4 +37,4 @@ npm start
 
 ### Future Plans
 * Allow a user to download the results
-* Let a user know their emails are loading if they have a larger file
+* Let a user add weights and calculate their own score for the email data vs using the one that comes from the api directly 
