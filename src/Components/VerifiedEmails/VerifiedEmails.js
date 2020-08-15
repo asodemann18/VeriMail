@@ -1,6 +1,7 @@
 import React from 'react';
 import './VerifiedEmails.css';
 import PropTypes from 'prop-types';
+import { CSVLink } from "react-csv";
 
 const VerifiedEmails = ({ filteredEmails, error }) => {
   const verifiedResults = filteredEmails.map(email => {
@@ -10,6 +11,10 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
       </tr>
     );
   });
+
+  const csvVerifiedEmails = filteredEmails.map(email => {
+    return {verifiedEmails: email.email}
+  })
 
   return (
     <>
@@ -30,6 +35,11 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
                {verifiedResults}
               </tbody>
             </table>
+            <section className='download-verified-section'>
+              <CSVLink data={csvVerifiedEmails} filename={'verified-emails'}>
+                <img src={require('../../images/download.svg')} alt='Download Data'/>
+              </CSVLink>
+            </section>
           </section>
         </section>
       } 
