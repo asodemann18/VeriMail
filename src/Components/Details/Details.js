@@ -56,28 +56,32 @@ const Details = ({emails, error}) => {
       {!error && emails.length > 0 &&
         <section className='detail-container'>
           <section className='detail-section'>
-          <h3 className='detail-title'>Email Details</h3>
-          <table>
-            <thead>
-              <tr>
-                <th className='table-header'>Email</th>
-                <th className='table-header'>Did you mean?</th>
-                <th className='table-header'>User</th>
-                <th className='table-header'>Domain</th>
-                <th className='table-header'>Valid Format</th>
-                <th className='table-header'>Valid Domain</th>
-                <th className='table-header'>Valid User</th>
-                <th className='table-header'>Role</th>
-                <th className='table-header'>Disposable</th>
-                <th className='table-header'>Free</th>
-                <th className='table-header'>Score</th>
-              </tr>
-            </thead>
-            <tbody>
-              {emailDetails}
-            </tbody>
-          </table>
-          <CSVLink data={csvEmailDetails} filename={'email-details'}>Download Results</CSVLink>
+            <h3 className='detail-title'>Email Details</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th className='table-header'>Email</th>
+                  <th className='table-header'>Did you mean?</th>
+                  <th className='table-header'>User</th>
+                  <th className='table-header'>Domain</th>
+                  <th className='table-header'>Valid Format</th>
+                  <th className='table-header'>Valid Domain</th>
+                  <th className='table-header'>Valid User</th>
+                  <th className='table-header'>Role</th>
+                  <th className='table-header'>Disposable</th>
+                  <th className='table-header'>Free</th>
+                  <th className='table-header'>Score</th>
+                </tr>
+              </thead>
+              <tbody>
+                {emailDetails}
+              </tbody>
+            </table>
+            <section className='download-details-section'>
+              <CSVLink data={csvEmailDetails} filename={'email-details'}>
+                <img src={require('../../images/download.svg')} alt='Download Data'/>
+              </CSVLink>
+            </section>
           </section>
         </section>
       }

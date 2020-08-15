@@ -35,7 +35,11 @@ const VerifiedEmails = ({ filteredEmails, error }) => {
                {verifiedResults}
               </tbody>
             </table>
-            <CSVLink data={csvVerifiedEmails} filename={'verified-emails'}>Download Results</CSVLink>
+            <section className='download-verified-section'>
+              <CSVLink data={csvVerifiedEmails} filename={'verified-emails'}>
+                <img src={require('../../images/download.svg')} alt='Download Data'/>
+              </CSVLink>
+            </section>
           </section>
         </section>
       } 

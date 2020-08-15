@@ -2,7 +2,6 @@ import React from 'react';
 import './Stats.css';
 import { Doughnut } from 'react-chartjs-2';
 import PropTypes from 'prop-types';
-import { PDFDownloadLink, Document, Page } from '@react-pdf/renderer';
 
 const Stats = ({statsBreakdown, avgScore, error}) => {
   const chart = (trueData, falseData) => {
@@ -39,9 +38,6 @@ const Stats = ({statsBreakdown, avgScore, error}) => {
     }
 
     return (
-      <Document>
-        <Page size='A4'>
-
       <section className='chart'  data-testid='chart' key={key}>
         <Doughnut data={chart(statsBreakdown[key], (100-statsBreakdown[key]))} options={{
           responsive: true,
@@ -66,8 +62,6 @@ const Stats = ({statsBreakdown, avgScore, error}) => {
           }
         }}/>
       </section>
-        </Page>
-      </Document>
     );
   })
 
