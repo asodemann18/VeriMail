@@ -19,7 +19,7 @@ The email validation is being done through the [mailboxlayer](https://mailboxlay
 ![Downloading Data](http://g.recordit.co/tlf0KLh7sR.gif)
 
 ## Setup
-[View it here.](https://verimail.netlify.app/)
+View it [here](https://verimail.netlify.app/).
 
 Download Instructions: 
 ```bash 
