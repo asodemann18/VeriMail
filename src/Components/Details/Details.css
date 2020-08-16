@@ -8,6 +8,7 @@
   border-radius: 10px;
   width: fit-content;
   max-height: 60vh;
+  max-width: 90vw;
   padding: .5% 2% .5% 2%;
   overflow: scroll;
   margin-top: 3%;
