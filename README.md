@@ -1,17 +1,17 @@
 # [VeriMail](https://verimail.netlify.app/)
 
-# Project By: [Alex Sodemann](https://github.com/asodemann18)
+## Project By: [Alex Sodemann](https://github.com/asodemann18)
 
-# About
+## About
 VeriMail was created for small business owners who want to ensure they're sending email campaigns to qualified addresses. A user can upload a csv of emails, and then see all the verified addresses from their list. They can also see overall statistics (% valid domain, % valid user, etc) and take a detailed look at the information for every email from their file.  A user has the ability to download the results from the Verified Emails page and the Email Details page.
 
 The email validation is being done through the [mailboxlayer](https://mailboxlayer.com/) api.
 
-# Project Goals
+## Project Goals
 * Effectively use React, Router, and Async JavaScript
 * Deliver a unique product that solves a problem using an api
 
-# In Action
+## In Action
 ### Uploading csv of emails:
 ![In Action](http://g.recordit.co/Q4taFOjSNm.gif)
 
